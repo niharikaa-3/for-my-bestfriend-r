@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Favorite Human ✨</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffd9ec, #fff2d8, #dff6ff);
+      overflow-x: hidden;
+      color: #5d4b5c;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .floating {
+      position: absolute;
+      font-size: 30px;
+      animation: float 8s infinite ease-in-out;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    h1 {
+      font-size: 4rem;
+      color: #ff5e94;
+      margin-bottom: 15px;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      max-width: 700px;
+      line-height: 1.8;
+    }
+
+    .cute-btn {
+      margin-top: 30px;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #ff77aa, #ffb870);
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 8px 20px rgba(255, 119, 170, 0.3);
+    }
+
+    .cute-btn:hover {
+      transform: scale(1.08);
+    }
+
+    section {
+      padding: 80px 10%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 40px;
+      color: #ff5e94;
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 25px;
+      height: 300px;
+      object-fit: cover;
+      transition: 0.4s;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .gallery img:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+
+    /* Perfume cards */
+    .perfume-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .perfume-card {
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 25px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .perfume-card h3 {
+      margin-bottom: 12px;
+      color: #ff5e94;
+    }
+
+    /* Pool Game */
+    .game-box {
+      background: white;
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    canvas {
+      background: #0f8b4c;
+      border-radius: 20px;
+      margin-top: 20px;
+      max-width: 100%;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 1rem;
+      color: #7b6074;
+    }
+
+    .message-box {
+      margin-top: 25px;
+      background: rgba(255,255,255,0.5);
+      padding: 25px;
+      border-radius: 25px;
+      line-height: 1.8;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    @media(max-width:768px){
+      h1 {
+        font-size: 2.8rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="floating" style="top:10%; left:10%;">🐱</div>
+    <div class="floating" style="top:20%; right:15%; animation-delay:1s;">✨</div>
+    <div class="floating" style="bottom:15%; left:20%; animation-delay:2s;">🌸</div>
+    <div class="floating" style="bottom:10%; right:20%; animation-delay:3s;">💖</div>
+
+    <h1>Hey You 💌</h1>
+
+    <p class="subtitle">
+      A tiny little website made with cute vibes, cats, perfume dreams,
+      and a lot of appreciation for one very cool human ✨
+    </p>
+
+    <button class="cute-btn" onclick="scrollToGallery()">
+      Enter the Cute Zone 🐾
+    </button>
+  </header>
+
+
+  <!-- Gallery -->
+  <section id="gallery-section">
+    <h2 class="section-title">Cat Gallery 🐱</h2>
+
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?q=80&w=1200&auto=format&fit=crop" />
+
+      <img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?q=80&w=1200&auto=format&fit=crop" />
+
+      <img src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?q=80&w=1200&auto=format&fit=crop" />
+
+      <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?q=80&w=1200&auto=format&fit=crop" />
+    </div>
+
+    <div class="message-box">
+      Cats are basically tiny dramatic roommates with emotional support energy.
+      Which honestly feels iconic.
+    </div>
+  </section>
+
+
+  <!-- Perfume Section -->
+  <section>
+    <h2 class="section-title">Perfume Corner 🌹</h2>
+
+    <div class="perfume-container">
+
+      <div class="perfume-card">
+        <h3>Midnight Vanilla</h3>
+        <p>
+          Smells like soft hoodies, late night drives,
+          and main character energy.
+        </p>
+      </div>
+
+      <div class="perfume-card">
+        <h3>Cloud Bloom</h3>
+        <p>
+          Sweet floral vibes with cozy rain energy.
+          Like happiness in a bottle.
+        </p>
+      </div>
+
+      <div class="perfume-card">
+        <h3>Cat Café Dreams</h3>
+        <p>
+          Notes of coffee, vanilla, and absolute comfort.
+          Approved by sleepy cats.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Mini Pool Game -->
+  <section>
+    <h2 class="section-title">Mini Pool Game 🎱</h2>
+
+    <div class="game-box">
+      <p>
+        Drag the white ball with your mouse and try to hit the target ball.
+      </p>
+
+      <canvas id="poolGame" width="700" height="350"></canvas>
+    </div>
+  </section>
+
+
+  <!-- Final Message -->
+  <section>
+    <h2 class="section-title">One Last Thing 💖</h2>
+
+    <div class="message-box" style="text-align:center; font-size:1.1rem;">
+      Thanks for existing.
+      <br><br>
+      The world genuinely becomes softer and more interesting because you're in it.
+      <br><br>
+      Stay happy, stay curious, and never stop collecting tiny beautiful moments ✨
+    </div>
+  </section>
+
+
+  <footer>
+    Made with ☕ + ✨ + emotional support cats.
+  </footer>
+
+
+  <script>
+    function scrollToGallery() {
+      document.getElementById('gallery-section').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+
+    // Pool game
+    const canvas = document.getElementById('poolGame');
+    const ctx = canvas.getContext('2d');
+
+    let cueBall = {
+      x: 120,
+      y: 180,
+      radius: 15,
+      color: 'white'
+    };
+
+    let targetBall = {
+      x: 550,
+      y: 180,
+      radius: 15,
+      color: '#ff5e94'
+    };
+
+    let dragging = false;
+
+    function drawBall(ball) {
+      ctx.beginPath();
+      ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+      ctx.fillStyle = ball.color;
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function drawGame() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      drawBall(cueBall);
+      drawBall(targetBall);
+
+      const dx = cueBall.x - targetBall.x;
+      const dy = cueBall.y - targetBall.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance < cueBall.radius + targetBall.radius) {
+        ctx.font = '28px Poppins';
+        ctx.fillStyle = 'white';
+        ctx.fillText('Nice Shot 🎉', 260, 60);
+      }
+    }
+
+    canvas.addEventListener('mousedown', () => {
+      dragging = true;
+    });
+
+    canvas.addEventListener('mouseup', () => {
+      dragging = false;
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      if (dragging) {
+        const rect = canvas.getBoundingClientRect();
+        cueBall.x = e.clientX - rect.left;
+        cueBall.y = e.clientY - rect.top;
+        drawGame();
+      }
+    });
+
+    drawGame();
+  </script>
+
+</body>
+</html>
+
