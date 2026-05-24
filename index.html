@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>For Rohan 🤍</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-
-:root{
---ivory:#f8f5f0;
---champagne:#e9dfd2;
---peach:#e9c7b8;
---lavender:#cbc3d8;
---night:#2d2a2a;
---soft:#ffffffcc;
-}
 
 *{
 margin:0;
@@ -30,74 +20,28 @@ scroll-behavior:smooth;
 }
 
 body{
-background:linear-gradient(180deg,#f8f5f0,#f3ede6,#ece6e0);
-font-family:'Inter',sans-serif;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(to bottom,#fffdfb,#f8f4ef,#fffaf7);
 overflow-x:hidden;
-color:#3a3636;
+color:#5c5552;
+position:relative;
 }
 
-/* LOADING SCREEN */
-
-#loader{
-position:fixed;
-inset:0;
-background:linear-gradient(180deg,#f4e7db,#efe5df,#e7e2ea);
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:99999;
-transition:1.5s;
-}
-
-.loader-text{
-font-family:'Cormorant Garamond',serif;
-font-size:2rem;
-letter-spacing:2px;
-opacity:0.8;
-}
-
-.loader-sub{
-margin-top:15px;
-font-size:0.95rem;
-opacity:0.6;
-}
-
-.loader-stars{
-position:absolute;
-width:100%;
-height:100%;
-overflow:hidden;
-}
+/* FLOATING STARS */
 
 .star{
-position:absolute;
-width:3px;
-height:3px;
+position:fixed;
+width:5px;
+height:5px;
 background:white;
 border-radius:50%;
-animation:twinkle 2s infinite alternate;
-}
-
-@keyframes twinkle{
-from{opacity:0.2;}
-to{opacity:1;}
-}
-
-/* FLOAT PARTICLES */
-
-.particle{
-position:fixed;
-width:6px;
-height:6px;
-border-radius:50%;
-background:rgba(255,255,255,0.5);
-pointer-events:none;
-animation:float 15s linear infinite;
+box-shadow:0 0 10px white;
+animation:floatUp linear infinite;
+opacity:0.8;
 z-index:-1;
 }
 
-@keyframes float{
+@keyframes floatUp{
 from{
 transform:translateY(100vh);
 opacity:0;
@@ -118,37 +62,28 @@ min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-text-align:center;
 padding:40px;
+text-align:center;
 position:relative;
-background:
-linear-gradient(
-180deg,
-rgba(240,223,210,0.7),
-rgba(244,239,235,0.9)
-);
 }
 
 .hero-content{
-max-width:850px;
-animation:fadeUp 2s ease;
+max-width:750px;
+animation:fadeUp 1.5s ease;
 }
 
 .hero h1{
-font-family:'Cormorant Garamond',serif;
-font-size:6rem;
-font-weight:600;
-letter-spacing:2px;
-margin-bottom:20px;
-color:#2d2a2a;
+font-size:5rem;
+font-family:'Caveat',cursive;
+color:#5b514c;
+margin-bottom:10px;
 }
 
 .hero p{
-font-size:1.15rem;
+font-size:1.1rem;
 line-height:2;
 opacity:0.75;
-max-width:700px;
-margin:auto;
+margin-top:20px;
 }
 
 .enter-btn{
@@ -156,135 +91,126 @@ margin-top:40px;
 padding:16px 34px;
 border:none;
 border-radius:50px;
-background:rgba(255,255,255,0.7);
-backdrop-filter:blur(10px);
-font-size:1rem;
+background:white;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
 cursor:pointer;
+font-size:1rem;
 transition:0.4s;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+color:#5b514c;
 }
 
 .enter-btn:hover{
-transform:translateY(-4px);
-background:white;
+transform:translateY(-4px) scale(1.03);
+}
+
+/* HUG SECTION */
+
+.hug-section{
+padding:40px 20px 0;
+text-align:center;
+}
+
+.hug-box{
+display:inline-block;
+position:relative;
+animation:sway 4s ease-in-out infinite;
+}
+
+.hug{
+font-size:5rem;
+}
+
+@keyframes sway{
+0%{transform:rotate(-2deg);}
+50%{transform:rotate(2deg);}
+100%{transform:rotate(-2deg);}
+}
+
+.hug-text{
+font-family:'Caveat',cursive;
+font-size:2rem;
+margin-top:15px;
+color:#7b6f68;
 }
 
 /* SECTION */
 
 .section{
-padding:120px 10%;
+padding:110px 10%;
 }
 
 .section-title{
-font-family:'Cormorant Garamond',serif;
-font-size:3.5rem;
 text-align:center;
+font-size:3rem;
+font-family:'Caveat',cursive;
 margin-bottom:70px;
-font-weight:600;
-}
-
-/* MOOD SELECTOR */
-
-.moods{
-display:flex;
-justify-content:center;
-gap:18px;
-flex-wrap:wrap;
-margin-top:40px;
-}
-
-.mood-btn{
-padding:14px 24px;
-border-radius:40px;
-border:none;
-background:rgba(255,255,255,0.6);
-backdrop-filter:blur(8px);
-cursor:pointer;
-transition:0.4s;
-font-size:0.95rem;
-}
-
-.mood-btn:hover{
-transform:translateY(-4px);
-background:white;
+color:#645b56;
 }
 
 /* SCRAPBOOK */
 
 .scrapbook{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
-gap:45px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:40px;
 }
 
 .polaroid{
 background:white;
 padding:15px 15px 55px;
-box-shadow:0 18px 35px rgba(0,0,0,0.08);
+border-radius:10px;
+box-shadow:0 15px 35px rgba(0,0,0,0.08);
+transition:0.4s;
 position:relative;
-transition:0.5s;
-}
-
-.polaroid:nth-child(1){
-transform:rotate(-3deg);
-}
-
-.polaroid:nth-child(2){
-transform:rotate(2deg);
-}
-
-.polaroid:nth-child(3){
-transform:rotate(-2deg);
 }
 
 .polaroid:hover{
-transform:scale(1.04) rotate(0deg);
+transform:translateY(-8px) rotate(1deg);
 }
 
 .polaroid img{
 width:100%;
-height:340px;
+height:320px;
 object-fit:cover;
-filter:saturate(0.95);
-}
-
-.tape{
-position:absolute;
-width:90px;
-height:22px;
-background:rgba(255,255,255,0.5);
-top:-10px;
-left:50%;
-transform:translateX(-50%) rotate(-2deg);
-backdrop-filter:blur(5px);
+border-radius:5px;
 }
 
 .caption{
 margin-top:20px;
+text-align:center;
 font-family:'Caveat',cursive;
 font-size:1.5rem;
-text-align:center;
-color:#5a5353;
+color:#6d625d;
+}
+
+.tape{
+position:absolute;
+top:-10px;
+left:50%;
+transform:translateX(-50%);
+width:90px;
+height:25px;
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(3px);
 }
 
 /* METER */
 
 .meter-box{
-max-width:700px;
+max-width:650px;
 margin:auto;
-background:rgba(255,255,255,0.5);
-backdrop-filter:blur(10px);
+background:white;
 padding:45px;
 border-radius:35px;
-box-shadow:0 10px 25px rgba(0,0,0,0.06);
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
 text-align:center;
 }
 
-.meter{
+.meter-bar{
 width:100%;
-height:22px;
+height:20px;
+background:#f1ece8;
 border-radius:50px;
-background:#eee;
 overflow:hidden;
 margin:30px 0;
 }
@@ -292,102 +218,116 @@ margin:30px 0;
 .fill{
 height:100%;
 width:0%;
-background:linear-gradient(90deg,#d8b8a8,#c7bfd6);
-transition:2.5s;
+background:linear-gradient(to right,#ffd8d8,#fff0d9);
+transition:2s;
 }
 
 .meter-result{
-font-size:1.2rem;
-opacity:0.8;
-margin-top:25px;
-}
-
-/* NOTES */
-
-.notes{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:35px;
-}
-
-.note-card{
-background:#fffdf9;
-padding:40px 25px;
-border-radius:25px;
-cursor:pointer;
-position:relative;
-overflow:hidden;
-box-shadow:0 15px 35px rgba(0,0,0,0.07);
-transition:0.4s;
-}
-
-.note-card:hover{
-transform:translateY(-6px);
-}
-
-.note-card h3{
-font-family:'Cormorant Garamond',serif;
-font-size:2rem;
-margin-bottom:15px;
-}
-
-.hidden-message{
 margin-top:20px;
-line-height:1.8;
-display:none;
+font-size:1.1rem;
 opacity:0.75;
 }
 
-/* POOL */
+/* ENVELOPES */
 
-.pool-wrapper{
-background:#10241d;
-padding:50px;
-border-radius:40px;
-box-shadow:0 20px 40px rgba(0,0,0,0.15);
+.envelope-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:35px;
 }
 
-canvas{
-background:#1f6d4d;
-border:18px solid #5b3622;
-border-radius:25px;
+.envelope{
+background:#fffaf6;
+border-radius:22px;
+padding:30px;
+position:relative;
+cursor:pointer;
+transition:0.4s;
+box-shadow:0 12px 25px rgba(0,0,0,0.07);
+overflow:hidden;
+}
+
+.envelope:hover{
+transform:translateY(-8px);
+}
+
+.flap{
+position:absolute;
+top:0;
+left:0;
 width:100%;
-max-width:1000px;
+height:50%;
+background:#f8ebe5;
+clip-path:polygon(0 0,100% 0,50% 100%);
+transition:0.6s;
+}
+
+.envelope.open .flap{
+transform:rotateX(180deg);
+transform-origin:top;
+}
+
+.envelope-title{
+position:relative;
+z-index:2;
+margin-top:50px;
+text-align:center;
+font-family:'Caveat',cursive;
+font-size:1.8rem;
+color:#6f6460;
+}
+
+.letter{
+background:white;
+margin-top:25px;
+padding:25px;
+border-radius:18px;
+line-height:1.9;
+font-size:0.95rem;
+display:none;
+animation:fadeUp 0.8s ease;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.envelope.open .letter{
 display:block;
-margin:auto;
-box-shadow:inset 0 0 30px rgba(0,0,0,0.4);
+}
+
+.sign{
+margin-top:20px;
+font-family:'Caveat',cursive;
+font-size:1.4rem;
 }
 
 /* SECRET */
 
 .secret-box{
-max-width:700px;
+max-width:650px;
 margin:auto;
+background:white;
 padding:50px;
-background:rgba(255,255,255,0.55);
-backdrop-filter:blur(10px);
 border-radius:35px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
 text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
 .secret-box input{
 margin-top:25px;
-padding:16px;
+padding:15px;
 width:80%;
-border-radius:18px;
 border:none;
+border-radius:18px;
+background:#f7f3ef;
 outline:none;
 font-size:1rem;
-background:white;
 }
 
 .unlock-btn{
 margin-top:25px;
-padding:14px 30px;
+padding:14px 28px;
 border:none;
 border-radius:50px;
-background:white;
+background:#fff0eb;
 cursor:pointer;
 transition:0.3s;
 }
@@ -400,9 +340,7 @@ transform:translateY(-3px);
 display:none;
 margin-top:35px;
 line-height:2;
-font-size:1.05rem;
-opacity:0.8;
-animation:fadeUp 1.5s ease;
+animation:fadeUp 1s ease;
 }
 
 /* FOOTER */
@@ -410,8 +348,8 @@ animation:fadeUp 1.5s ease;
 footer{
 padding:70px 20px;
 text-align:center;
-opacity:0.6;
 font-size:0.95rem;
+opacity:0.65;
 }
 
 /* ANIMATIONS */
@@ -419,7 +357,7 @@ font-size:0.95rem;
 @keyframes fadeUp{
 from{
 opacity:0;
-transform:translateY(40px);
+transform:translateY(30px);
 }
 to{
 opacity:1;
@@ -436,11 +374,11 @@ font-size:4rem;
 }
 
 .section-title{
-font-size:2.5rem;
+font-size:2.3rem;
 }
 
-.pool-wrapper{
-padding:20px;
+.hug{
+font-size:4rem;
 }
 
 }
@@ -450,26 +388,22 @@ padding:20px;
 
 <body>
 
-<!-- LOADER -->
+<!-- FLOATING STARS -->
 
-<div id="loader">
+<script>
+for(let i=0;i<35;i++){
 
-<div class="loader-stars">
-<div class="star" style="top:20%;left:15%;"></div>
-<div class="star" style="top:30%;left:60%;"></div>
-<div class="star" style="top:70%;left:40%;"></div>
-<div class="star" style="top:80%;left:80%;"></div>
-</div>
+let star=document.createElement('div');
+star.classList.add('star');
 
-<div class="loader-text">
-collecting memories...
-</div>
+star.style.left=Math.random()*100+'vw';
+star.style.animationDuration=(10+Math.random()*10)+'s';
+star.style.opacity=Math.random();
 
-<div class="loader-sub">
-sunsets • white flowers • late night calls
-</div>
+document.body.appendChild(star);
 
-</div>
+}
+</script>
 
 <!-- HERO -->
 
@@ -477,37 +411,36 @@ sunsets • white flowers • late night calls
 
 <div class="hero-content">
 
-<h1>For Rohan</h1>
+<h1>For Rohan 🤍</h1>
 
 <p>
-Built from sunsets, white flowers, late night calls,
-shared silences, endless support, and all the little moments
-that quietly became unforgettable.
+my favorite person since forever.<br>
+thank you for every late night call,
+every tiny happy moment,
+and for always staying.
 </p>
 
 <button class="enter-btn"
 onclick="document.getElementById('memories').scrollIntoView()">
-enter our little universe ✨
+enter our little scrapbook ✨
 </button>
 
-<div class="moods">
+</div>
 
-<button class="mood-btn" onclick="setMood('sunset')">
-Sunset Evenings 🌅
-</button>
+</section>
 
-<button class="mood-btn" onclick="setMood('flowers')">
-White Flowers 🤍
-</button>
+<!-- HUG -->
 
-<button class="mood-btn" onclick="setMood('night')">
-Midnight Calls 🌙
-</button>
+<section class="hug-section">
 
-<button class="mood-btn" onclick="setMood('drive')">
-Long Drives 🚗
-</button>
+<div class="hug-box">
 
+<div class="hug">
+🧍🏻‍♀️🤍🧍🏻‍♂️
+</div>
+
+<div class="hug-text">
+thank you for staying
 </div>
 
 </div>
@@ -519,7 +452,7 @@ Long Drives 🚗
 <section class="section" id="memories">
 
 <h2 class="section-title">
-Memory Scrapbook 📸
+our little memories 📸
 </h2>
 
 <div class="scrapbook">
@@ -558,26 +491,26 @@ late night comfort calls
 
 </section>
 
-<!-- METER -->
+<!-- BEST FRIEND METER -->
 
 <section class="section">
 
 <h2 class="section-title">
-Best Friend Meter 💖
+best friend meter 💖
 </h2>
 
 <div class="meter-box">
 
 <p>
-Scanning friendship levels...
+scanning friendship levels...
 </p>
 
-<div class="meter">
+<div class="meter-bar">
 <div class="fill" id="fill"></div>
 </div>
 
 <button class="enter-btn" onclick="runMeter()">
-calculate ✨
+scan ✨
 </button>
 
 <div class="meter-result" id="meterResult">
@@ -588,66 +521,120 @@ friendship status pending...
 
 </section>
 
-<!-- NOTES -->
+<!-- ENVELOPES -->
 
 <section class="section">
 
 <h2 class="section-title">
-Hidden Notes 🎁
+letters for rohan 💌
 </h2>
 
-<div class="notes">
+<div class="envelope-grid">
 
-<div class="note-card" onclick="openNote(this)">
-<h3>Open when sad</h3>
+<div class="envelope" onclick="toggleEnvelope(this)">
+<div class="flap"></div>
 
-<div class="hidden-message">
-You never have to carry everything alone.
-Some people stay — and I always will.
-</div>
+<div class="envelope-title">
+open when sad
 </div>
 
-<div class="note-card" onclick="openNote(this)">
-<h3>Open when overthinking</h3>
-
-<div class="hidden-message">
-You are loved far more than your mind allows you to believe sometimes.
-Breathe. Rest. You're okay.
-</div>
-</div>
-
-<div class="note-card" onclick="openNote(this)">
-<h3>Open after a long day</h3>
-
-<div class="hidden-message">
-Thank you for surviving today.
-I'm proud of you for getting through it.
-</div>
-</div>
-
-<div class="note-card" onclick="openNote(this)">
-<h3>Open when you miss me</h3>
-
-<div class="hidden-message">
-We're probably under the same sky thinking about the same sunsets anyway.
+<div class="letter">
+you never have to carry everything alone.
+i'll always be here for you no matter what.
+<div class="sign">
+— your comfort human 🤍
 </div>
 </div>
 
 </div>
 
-</section>
+<div class="envelope" onclick="toggleEnvelope(this)">
+<div class="flap"></div>
 
-<!-- POOL -->
+<div class="envelope-title">
+open when overthinking
+</div>
 
-<section class="section">
+<div class="letter">
+drink water immediately before i fight you.<br><br>
+also you're loved way more than you realize.
+<div class="sign">
+— emotionally attached person
+</div>
+</div>
 
-<h2 class="section-title">
-Midnight Pool 🎱
-</h2>
+</div>
 
-<div class="pool-wrapper">
+<div class="envelope" onclick="toggleEnvelope(this)">
+<div class="flap"></div>
 
-<canvas id="pool" width="950" height="500"></canvas>
+<div class="envelope-title">
+open when you miss me
+</div>
+
+<div class="letter">
+we're probably under the same sky
+thinking about the same sunsets anyway.
+<div class="sign">
+— always with you 🌙
+</div>
+</div>
+
+</div>
+
+<div class="envelope" onclick="toggleEnvelope(this)">
+<div class="flap"></div>
+
+<div class="envelope-title">
+open when tired
+</div>
+
+<div class="letter">
+you've already survived 100% of your hardest days.
+i'm proud of you for trying even when things feel heavy.
+<div class="sign">
+— your favorite person ✨
+</div>
+</div>
+
+</div>
+
+<div class="envelope" onclick="toggleEnvelope(this)">
+<div class="flap"></div>
+
+<div class="envelope-title">
+open for emergency serotonin
+</div>
+
+<div class="letter">
+this is your official reminder that:
+you are iconic,
+funny,
+important,
+and legally required to stay forever.
+<div class="sign">
+— management 💌
+</div>
+</div>
+
+</div>
+
+<div class="envelope" onclick="toggleEnvelope(this)">
+<div class="flap"></div>
+
+<div class="envelope-title">
+open after a sunset
+</div>
+
+<div class="letter">
+some sunsets will always remind me of you.
+quiet happiness feels softer with you around.
+<div class="sign">
+— sunset partner 🌅
+</div>
+</div>
+
+</div>
 
 </div>
 
@@ -658,39 +645,35 @@ Midnight Pool 🎱
 <section class="section">
 
 <h2 class="section-title">
-Secret Memory Box 🔐
+secret memory box 🔐
 </h2>
 
 <div class="secret-box">
 
 <p>
-Only Rohan knows the password.
+only rohan knows the password ✨
 </p>
 
-<input type="password" id="password"
+<input type="password"
+id="password"
 placeholder="enter password">
 
 <br>
 
 <button class="unlock-btn" onclick="unlockSecret()">
-unlock ✨
+unlock 💌
 </button>
 
 <div class="secret-message" id="secretMessage">
 
-Some friendships quietly become part of your life forever.
-
-<br><br>
-
-Thank you for every late night call,
-every sunset,
-every flower,
+thank you for every memory,
+every comfort call,
+every laugh,
 every moment you stayed.
 
 <br><br>
 
-And yes —
-you are emotionally attached beyond repair.
+some people quietly become home.
 
 🤍
 
@@ -701,95 +684,29 @@ you are emotionally attached beyond repair.
 </section>
 
 <footer>
-made from memories, sunsets, and quiet appreciation ✨
+made carefully for my favorite person 🌸
 </footer>
 
 <script>
 
-/* LOADER */
-
-setTimeout(()=>{
-
-document.getElementById('loader').style.opacity='0';
-
-setTimeout(()=>{
-
-document.getElementById('loader').style.display='none';
-
-},1500);
-
-},2500);
-
-/* PARTICLES */
-
-for(let i=0;i<25;i++){
-
-let p=document.createElement('div');
-
-p.classList.add('particle');
-
-p.style.left=Math.random()*100+'vw';
-p.style.animationDuration=(10+Math.random()*10)+'s';
-p.style.opacity=Math.random();
-
-document.body.appendChild(p);
-
-}
-
-/* MOODS */
-
-function setMood(type){
-
-if(type==='sunset'){
-
-document.body.style.background=
-'linear-gradient(180deg,#f6e0d0,#f3ebe3,#ece7e1)';
-
-}
-
-if(type==='flowers'){
-
-document.body.style.background=
-'linear-gradient(180deg,#f7f5f1,#ece6e0,#e6e0ea)';
-
-}
-
-if(type==='night'){
-
-document.body.style.background=
-'linear-gradient(180deg,#d7d5dd,#ece7e1,#f6f2ed)';
-
-}
-
-if(type==='drive'){
-
-document.body.style.background=
-'linear-gradient(180deg,#efe1d7,#ebe7e2,#f8f5f0)';
-
-}
-
-}
-
-/* METER */
+/* FRIENDSHIP METER */
 
 function runMeter(){
 
-let fill=document.getElementById('fill');
+document.getElementById('fill').style.width='100%';
 
-fill.style.width='100%';
+const results=[
 
-const messages=[
-
-'emotionally attached beyond repair.',
-'friendship level: impossibly rare.',
-'professional comfort humans.',
-'built from sunsets and loyalty.',
-'100% favorite person energy.'
+'99% emotionally attached.',
+'elite friendship detected.',
+'basically family at this point.',
+'too iconic honestly.',
+'professional comfort humans.'
 
 ];
 
 let random=
-messages[Math.floor(Math.random()*messages.length)];
+results[Math.floor(Math.random()*results.length)];
 
 setTimeout(()=>{
 
@@ -799,21 +716,11 @@ document.getElementById('meterResult').innerHTML=random;
 
 }
 
-/* NOTES */
+/* ENVELOPES */
 
-function openNote(card){
+function toggleEnvelope(card){
 
-let msg=card.querySelector('.hidden-message');
-
-if(msg.style.display==='block'){
-
-msg.style.display='none';
-
-}else{
-
-msg.style.display='block';
-
-}
+card.classList.toggle('open');
 
 }
 
@@ -829,189 +736,11 @@ document.getElementById('secretMessage').style.display='block';
 
 }else{
 
-alert('wrong password 🌙');
+alert('wrong password 🤍');
 
 }
 
 }
-
-/* POOL GAME */
-
-const canvas=document.getElementById('pool');
-const ctx=canvas.getContext('2d');
-
-const pockets=[
-{x:20,y:20},
-{x:475,y:20},
-{x:930,y:20},
-{x:20,y:480},
-{x:475,y:480},
-{x:930,y:480}
-];
-
-let cueBall={
-x:180,
-y:250,
-r:13,
-vx:0,
-vy:0
-};
-
-let targetBall={
-x:700,
-y:250,
-r:13,
-active:true
-};
-
-let aiming=false;
-let mouse={x:0,y:0};
-
-canvas.addEventListener('mousedown',()=>{
-
-aiming=true;
-
-});
-
-canvas.addEventListener('mouseup',(e)=>{
-
-if(aiming){
-
-let rect=canvas.getBoundingClientRect();
-
-let mx=e.clientX-rect.left;
-let my=e.clientY-rect.top;
-
-cueBall.vx=(cueBall.x-mx)/12;
-cueBall.vy=(cueBall.y-my)/12;
-
-aiming=false;
-
-}
-
-});
-
-canvas.addEventListener('mousemove',(e)=>{
-
-let rect=canvas.getBoundingClientRect();
-
-mouse.x=e.clientX-rect.left;
-mouse.y=e.clientY-rect.top;
-
-});
-
-function drawBall(ball,color){
-
-ctx.beginPath();
-ctx.arc(ball.x,ball.y,ball.r,0,Math.PI*2);
-ctx.fillStyle=color;
-ctx.fill();
-
-}
-
-function draw(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-/* pockets */
-
-pockets.forEach(p=>{
-
-ctx.beginPath();
-ctx.arc(p.x,p.y,24,0,Math.PI*2);
-ctx.fillStyle='#08120d';
-ctx.fill();
-
-});
-
-/* cue line */
-
-if(aiming){
-
-ctx.beginPath();
-ctx.moveTo(cueBall.x,cueBall.y);
-ctx.lineTo(mouse.x,mouse.y);
-ctx.strokeStyle='rgba(255,255,255,0.5)';
-ctx.lineWidth=3;
-ctx.stroke();
-
-}
-
-/* movement */
-
-cueBall.x+=cueBall.vx;
-cueBall.y+=cueBall.vy;
-
-cueBall.vx*=0.99;
-cueBall.vy*=0.99;
-
-if(cueBall.x<cueBall.r || cueBall.x>canvas.width-cueBall.r)
-cueBall.vx*=-1;
-
-if(cueBall.y<cueBall.r || cueBall.y>canvas.height-cueBall.r)
-cueBall.vy*=-1;
-
-/* target */
-
-if(targetBall.active){
-
-drawBall(targetBall,'#f7f2ed');
-
-}
-
-/* cue */
-
-drawBall(cueBall,'white');
-
-/* collision */
-
-if(targetBall.active){
-
-let dx=targetBall.x-cueBall.x;
-let dy=targetBall.y-cueBall.y;
-
-let dist=Math.sqrt(dx*dx+dy*dy);
-
-if(dist<cueBall.r+targetBall.r){
-
-targetBall.x+=cueBall.vx*3;
-targetBall.y+=cueBall.vy*3;
-
-}
-
-}
-
-/* pocket detection */
-
-if(targetBall.active){
-
-pockets.forEach(p=>{
-
-let dx=p.x-targetBall.x;
-let dy=p.y-targetBall.y;
-
-let dist=Math.sqrt(dx*dx+dy*dy);
-
-if(dist<22){
-
-targetBall.active=false;
-
-ctx.fillStyle='white';
-ctx.font='48px Cormorant Garamond';
-
-ctx.fillText('Nice shot ✨',360,80);
-
-}
-
-});
-
-}
-
-requestAnimationFrame(draw);
-
-}
-
-draw();
 
 </script>
 
