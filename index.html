@@ -182,7 +182,7 @@ margin-top:12px;
 text-align:center;
 font-family:'Patrick Hand',cursive;
 font-size:1.1rem;
-color:#6d5760;
+color:#d57eed;
 }
 
 .tape{
@@ -518,78 +518,139 @@ grid-template-columns:1fr;
 /* PASSWORD SECTION */
 
 .password-box{
-max-width:700px;
+max-width:760px;
 margin:auto;
 text-align:center;
-background:rgba(255,255,255,0.18);
-backdrop-filter:blur(16px);
-padding:60px;
-border-radius:35px;
-box-shadow:0 15px 35px rgba(0,0,0,0.1);
+background:rgba(255,255,255,0.14);
+backdrop-filter:blur(18px);
+padding:70px 50px;
+border-radius:40px;
+box-shadow:
+0 15px 40px rgba(0,0,0,0.08),
+0 0 30px rgba(255,255,255,0.08);
+position:relative;
+overflow:hidden;
+}
+
+/* soft glow */
+
+.password-box::before{
+content:'';
+position:absolute;
+width:300px;
+height:300px;
+background:rgba(255,255,255,0.15);
+border-radius:50%;
+top:-120px;
+right:-100px;
+filter:blur(40px);
 }
 
 .password-text{
 font-family:'Patrick Hand',cursive;
-font-size:1.4rem;
-color:#fff8fb;
-margin-bottom:30px;
+font-size:1.6rem;
+color:#fff7fb;
+margin-bottom:28px;
+position:relative;
+z-index:2;
 }
+
+/* INPUT */
 
 .password-box input{
-width:80%;
-padding:18px;
+width:85%;
+padding:18px 22px;
 border:none;
 outline:none;
-border-radius:18px;
-background:rgba(255,255,255,0.75);
+border-radius:20px;
+background:rgba(255,255,255,0.72);
 font-size:1rem;
 font-family:'Nunito',sans-serif;
-color:#6b5861;
+color:#6c5862;
+box-shadow:0 8px 20px rgba(0,0,0,0.06);
 }
 
+/* BUTTON */
+
 .unlock-btn{
-margin-top:25px;
-padding:16px 38px;
+margin-top:28px;
+padding:16px 42px;
 border:none;
-border-radius:50px;
-background:#ffd4df;
-color:#6d5560;
-font-size:1.1rem;
+border-radius:60px;
+background:rgba(255,255,255,0.28);
+backdrop-filter:blur(10px);
+color:white;
+font-size:1.2rem;
 font-family:'Patrick Hand',cursive;
 cursor:pointer;
 transition:0.3s;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
 }
 
 .unlock-btn:hover{
-transform:translateY(-4px) scale(1.04);
+transform:translateY(-5px) scale(1.04);
 }
+
+/* HIDDEN MESSAGE */
 
 .hidden-message{
 display:none;
-margin-top:40px;
+margin-top:45px;
 animation:fadeUp 0.8s ease;
 }
 
+/* IMPORTANT */
+
+.hidden-message.show{
+display:block;
+}
+
+/* SECRET CARD */
+
 .secret-card{
 background:rgba(255,255,255,0.82);
-padding:40px;
-border-radius:28px;
-line-height:2;
+padding:45px;
+border-radius:30px;
+line-height:2.1;
 color:#654f58;
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+text-align:left;
+position:relative;
+overflow:hidden;
+}
+
+/* little glow */
+
+.secret-card::before{
+content:'';
+position:absolute;
+top:-50px;
+left:-50px;
+width:180px;
+height:180px;
+background:rgba(255,255,255,0.18);
+border-radius:50%;
+filter:blur(30px);
 }
 
 .secret-card h3{
 font-family:'Caveat',cursive;
-font-size:3rem;
-margin-bottom:20px;
+font-size:3.3rem;
+margin-bottom:18px;
+color:#7a5b66;
+}
+
+.secret-card p{
+font-size:1.08rem;
+position:relative;
+z-index:2;
 }
 
 .secret-sign{
-margin-top:25px;
+margin-top:28px;
 font-family:'Caveat',cursive;
-font-size:1.8rem;
+font-size:2rem;
+color:#7b5b67;
 }
 }
 
@@ -966,8 +1027,6 @@ btn.style.transform=
 
 }
 
-/* PASSWORD MESSAGE */
-
 function unlockMessage(){
 
 let password =
@@ -975,13 +1034,17 @@ document.getElementById('secretPassword').value;
 
 if(password.toLowerCase() === "white"){
 
-document.getElementById('hiddenMessage').style.display = "block";
+document
+.getElementById('hiddenMessage')
+.classList.add('show');
 
 createHearts();
 
 }else{
 
 alert("Wrong password 🤍");
+
+}
 
 }
 
