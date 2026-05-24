@@ -1,211 +1,641 @@
+<!-- 
+ULTIMATE BEST FRIEND WEBSITE ✨
+Features:
+🎱 Real mini pool game
+🎵 Spotify music player
+🐾 Cat cursor
+💖 Love meter
+🎁 Hidden surprise messages
+🌫️ Perfume spray animation
+📸 Polaroid gallery
+🔐 Password secret page
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>For My Favorite Human ✨</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Favorite Human 💖</title>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins', sans-serif;
-    }
+<style>
 
-    body{
-      height:100vh;
-      overflow:hidden;
-      background: linear-gradient(135deg, #ffd6e8, #ffeecf, #d6f7ff);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      position:relative;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  cursor:none;
+  font-family:'Poppins',sans-serif;
+}
 
-    /* Floating hearts */
-    .heart{
-      position:absolute;
-      color:#ff7aa2;
-      animation: float 10s linear infinite;
-      opacity:0.7;
-      font-size:20px;
-    }
+body{
+  background:linear-gradient(135deg,#ffd9ec,#fff2d8,#dff6ff);
+  overflow-x:hidden;
+  color:#5c4d5b;
+}
 
-    @keyframes float{
-      from{
-        transform:translateY(100vh) rotate(0deg);
-      }
-      to{
-        transform:translateY(-120vh) rotate(360deg);
-      }
-    }
+/* CAT CURSOR */
 
-    .card{
-      width: 90%;
-      max-width: 700px;
-      background: rgba(255,255,255,0.35);
-      backdrop-filter: blur(12px);
-      border: 2px solid rgba(255,255,255,0.4);
-      border-radius: 30px;
-      padding: 40px;
-      text-align:center;
-      box-shadow:0 10px 30px rgba(0,0,0,0.1);
-      z-index:2;
-    }
+#cursor{
+  position:fixed;
+  width:40px;
+  height:40px;
+  pointer-events:none;
+  z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:transform 0.05s linear;
+  font-size:30px;
+}
 
-    h1{
-      font-size:3rem;
-      color:#ff5c8a;
-      margin-bottom:15px;
-    }
+/* FLOATING */
 
-    .subtitle{
-      color:#6b5b7a;
-      font-size:1.1rem;
-      margin-bottom:25px;
-    }
+.float{
+  position:absolute;
+  animation:float 6s ease-in-out infinite;
+  opacity:0.7;
+}
 
-    .message{
-      background:white;
-      padding:25px;
-      border-radius:20px;
-      color:#555;
-      line-height:1.8;
-      font-size:1rem;
-      box-shadow:0 5px 15px rgba(0,0,0,0.05);
-    }
+@keyframes float{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-20px);}
+  100%{transform:translateY(0px);}
+}
 
-    .highlight{
-      color:#ff5c8a;
-      font-weight:bold;
-    }
+/* HERO */
 
-    .btn{
-      margin-top:25px;
-      padding:14px 28px;
-      border:none;
-      border-radius:50px;
-      background:linear-gradient(135deg,#ff7aa2,#ffb86c);
-      color:white;
-      font-size:1rem;
-      cursor:pointer;
-      transition:0.3s;
-      box-shadow:0 5px 15px rgba(255,122,162,0.4);
-    }
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:30px;
+  position:relative;
+}
 
-    .btn:hover{
-      transform:scale(1.08);
-    }
+.hero h1{
+  font-size:4rem;
+  color:#ff5e94;
+  margin-bottom:20px;
+}
 
-    #secret{
-      margin-top:20px;
-      color:#7a4d62;
-      font-size:1.1rem;
-      display:none;
-      animation: fadeIn 1s ease;
-    }
+.hero p{
+  max-width:700px;
+  line-height:1.8;
+  font-size:1.1rem;
+}
 
-    @keyframes fadeIn{
-      from{
-        opacity:0;
-        transform:translateY(10px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
+.btn{
+  margin-top:25px;
+  padding:14px 28px;
+  border:none;
+  border-radius:50px;
+  background:linear-gradient(135deg,#ff77aa,#ffb870);
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(255,119,170,0.3);
+  transition:0.3s;
+}
 
-    .stars{
-      position:absolute;
-      width:100%;
-      height:100%;
-      overflow:hidden;
-      z-index:0;
-    }
+.btn:hover{
+  transform:scale(1.08);
+}
 
-    .star{
-      position:absolute;
-      width:4px;
-      height:4px;
-      background:white;
-      border-radius:50%;
-      animation: twinkle 2s infinite alternate;
-    }
+/* LOVE METER */
 
-    @keyframes twinkle{
-      from{
-        opacity:0.3;
-      }
-      to{
-        opacity:1;
-      }
-    }
+.love-box{
+  width:90%;
+  max-width:600px;
+  margin:80px auto;
+  background:white;
+  padding:30px;
+  border-radius:30px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
 
-  </style>
+.meter{
+  width:100%;
+  height:30px;
+  background:#ffe5ef;
+  border-radius:50px;
+  overflow:hidden;
+  margin-top:20px;
+}
+
+.fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#ff5e94,#ffb870);
+  transition:2s;
+}
+
+/* POLAROID */
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  padding:80px 10%;
+}
+
+.polaroid{
+  background:white;
+  padding:15px 15px 50px;
+  border-radius:10px;
+  transform:rotate(-2deg);
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.polaroid:nth-child(even){
+  transform:rotate(2deg);
+}
+
+.polaroid:hover{
+  transform:scale(1.03);
+}
+
+.polaroid img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.caption{
+  margin-top:15px;
+  text-align:center;
+  font-weight:bold;
+}
+
+/* PERFUME SPRAY */
+
+.spray-btn{
+  display:block;
+  margin:20px auto;
+}
+
+.mist{
+  position:fixed;
+  width:20px;
+  height:20px;
+  background:rgba(255,255,255,0.5);
+  border-radius:50%;
+  pointer-events:none;
+  animation:spray 2s linear forwards;
+}
+
+@keyframes spray{
+  0%{
+    transform:scale(0.5);
+    opacity:1;
+  }
+  100%{
+    transform:translateY(-200px) scale(4);
+    opacity:0;
+  }
+}
+
+/* POOL GAME */
+
+.pool-container{
+  padding:80px 20px;
+  text-align:center;
+}
+
+canvas{
+  background:#0d8c4a;
+  border:15px solid #6b3f1f;
+  border-radius:20px;
+  margin-top:20px;
+  max-width:100%;
+}
+
+/* SECRET PAGE */
+
+.secret-box{
+  width:90%;
+  max-width:600px;
+  margin:80px auto;
+  background:white;
+  padding:30px;
+  border-radius:30px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.secret-message{
+  display:none;
+  margin-top:20px;
+  background:#ffeaf2;
+  padding:20px;
+  border-radius:20px;
+}
+
+input{
+  padding:12px;
+  border-radius:10px;
+  border:2px solid #ffd3e2;
+  width:70%;
+  margin-top:15px;
+}
+
+/* SPOTIFY */
+
+.spotify{
+  display:flex;
+  justify-content:center;
+  padding:40px;
+}
+
+/* SURPRISE */
+
+.surprise{
+  text-align:center;
+  padding:60px 20px;
+}
+
+.hidden-note{
+  display:none;
+  margin-top:20px;
+  font-size:1.2rem;
+  color:#ff5e94;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+  font-size:2.8rem;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-  <!-- Floating Hearts -->
-  <div class="heart" style="left:10%; animation-duration:8s;">💖</div>
-  <div class="heart" style="left:25%; animation-duration:11s;">✨</div>
-  <div class="heart" style="left:40%; animation-duration:9s;">🌸</div>
-  <div class="heart" style="left:60%; animation-duration:12s;">💗</div>
-  <div class="heart" style="left:75%; animation-duration:7s;">⭐</div>
-  <div class="heart" style="left:90%; animation-duration:10s;">🩷</div>
+<div id="cursor">🐾</div>
 
-  <!-- Tiny Stars -->
-  <div class="stars">
-    <div class="star" style="top:10%; left:20%;"></div>
-    <div class="star" style="top:25%; left:70%;"></div>
-    <div class="star" style="top:50%; left:10%;"></div>
-    <div class="star" style="top:70%; left:80%;"></div>
-    <div class="star" style="top:85%; left:35%;"></div>
-  </div>
+<div class="float" style="top:10%;left:10%;">🐱</div>
+<div class="float" style="top:20%;right:10%;">✨</div>
+<div class="float" style="bottom:10%;left:20%;">💖</div>
 
-  <!-- Main Card -->
-  <div class="card">
-    <h1>Hey Bestie 🌸</h1>
+<section class="hero">
 
-    <p class="subtitle">
-      This tiny corner of the internet was made just for you ✨
-    </p>
+<h1>Hey Bestie 💌</h1>
 
-    <div class="message">
-      Thank you for being the kind of person who makes ordinary days feel a little softer,
-      funnier, and brighter. 🌈
+<p>
+This website was made with cats, perfume dreams,
+music, chaos, and appreciation for one very special human ✨
+</p>
 
-      <br><br>
+<button class="btn" onclick="showMessage()">
+Open Tiny Surprise 🎁
+</button>
 
-      You deserve:
-      <span class="highlight">warm coffee, peaceful nights, happy playlists, random laughter,
-      and all the good things life can offer.</span>
+<div class="hidden-note" id="note">
+You are genuinely one of the best people ever 💖
+</div>
 
-      <br><br>
+</section>
 
-      Also... if life becomes too much sometimes, remember:
-      you are deeply appreciated more than you know 💕
-    </div>
+<!-- SPOTIFY -->
 
-    <button class="btn" onclick="showSecret()">
-      Click for a tiny surprise 🎁
-    </button>
+<div class="spotify">
 
-    <div id="secret">
-      🌷 You are officially certified as:
-      <br><br>
-      <strong>"One of the coolest humans ever."</strong>
-      <br><br>
-      Valid forever 💌
-    </div>
-  </div>
+<iframe style="border-radius:12px"
+src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0XUsuxWHRQd?utm_source=generator"
+width="80%"
+height="352"
+frameBorder="0"
+allowfullscreen=""
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+loading="lazy"></iframe>
 
-  <script>
-    function showSecret(){
-      document.getElementById("secret").style.display = "block";
-    }
-  </script>
+</div>
+
+<!-- LOVE METER -->
+
+<div class="love-box">
+
+<h2>Best Friend Meter 💖</h2>
+
+<p>Calculating how iconic you are...</p>
+
+<div class="meter">
+<div class="fill" id="fill"></div>
+</div>
+
+<h1 id="percent">0%</h1>
+
+<button class="btn" onclick="fillMeter()">
+Calculate ✨
+</button>
+
+</div>
+
+<!-- PERFUME -->
+
+<div class="love-box">
+
+<h2>Perfume Spray 🌫️</h2>
+
+<p>
+Click to release cozy expensive perfume energy.
+</p>
+
+<button class="btn spray-btn" onclick="sprayPerfume()">
+Spray Perfume ✨
+</button>
+
+</div>
+
+<!-- POLAROID GALLERY -->
+
+<h1 style="text-align:center;color:#ff5e94;">
+Memory Gallery 📸
+</h1>
+
+<div class="gallery">
+
+<div class="polaroid">
+<img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?q=80&w=1200&auto=format&fit=crop">
+<div class="caption">Certified emotional support cat 🐱</div>
+</div>
+
+<div class="polaroid">
+<img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?q=80&w=1200&auto=format&fit=crop">
+<div class="caption">Tiny happy moments ✨</div>
+</div>
+
+<div class="polaroid">
+<img src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?q=80&w=1200&auto=format&fit=crop">
+<div class="caption">Main character energy 🌸</div>
+</div>
+
+</div>
+
+<!-- REAL POOL GAME -->
+
+<div class="pool-container">
+
+<h1 style="color:#ff5e94;">
+Mini Pool 🎱
+</h1>
+
+<p>
+Drag backwards from the white ball and release to shoot.
+</p>
+
+<canvas id="gameCanvas" width="800" height="400"></canvas>
+
+</div>
+
+<!-- SECRET PAGE -->
+
+<div class="secret-box">
+
+<h2>Secret Page 🔐</h2>
+
+<p>
+Only cool people know the password.
+</p>
+
+<input type="password" id="password" placeholder="Enter password">
+
+<br>
+
+<button class="btn" onclick="checkPassword()">
+Unlock ✨
+</button>
+
+<div class="secret-message" id="secret">
+
+🌸 SECRET MESSAGE 🌸
+
+<br><br>
+
+Thank you for existing.
+You make life feel softer, funnier,
+and way more beautiful 💖
+
+</div>
+
+</div>
+
+<script>
+
+/* CAT CURSOR */
+
+const cursor = document.getElementById('cursor');
+
+document.addEventListener('mousemove',(e)=>{
+
+cursor.style.left = e.clientX + 'px';
+cursor.style.top = e.clientY + 'px';
+
+});
+
+/* SURPRISE */
+
+function showMessage(){
+
+document.getElementById('note').style.display='block';
+
+}
+
+/* LOVE METER */
+
+function fillMeter(){
+
+let random = Math.floor(Math.random()*11)+90;
+
+document.getElementById('fill').style.width = random + '%';
+
+document.getElementById('percent').innerHTML = random + '%';
+
+}
+
+/* PERFUME */
+
+function sprayPerfume(){
+
+for(let i=0;i<40;i++){
+
+let mist = document.createElement('div');
+
+mist.classList.add('mist');
+
+mist.style.left = (window.innerWidth/2 + Math.random()*200 -100)+'px';
+
+mist.style.top = (window.innerHeight/2 + Math.random()*100)+'px';
+
+document.body.appendChild(mist);
+
+setTimeout(()=>{
+
+mist.remove();
+
+},2000);
+
+}
+
+}
+
+/* PASSWORD */
+
+function checkPassword(){
+
+let pass = document.getElementById('password').value;
+
+if(pass === 'bestie'){
+
+document.getElementById('secret').style.display='block';
+
+}else{
+
+alert('Wrong password 😭');
+
+}
+
+}
+
+/* REAL MINI POOL */
+
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+
+let ball = {
+x:150,
+y:200,
+radius:12,
+vx:0,
+vy:0
+};
+
+let target = {
+x:650,
+y:200,
+radius:12
+};
+
+let dragging = false;
+let startX,startY;
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+/* holes */
+
+const holes = [
+[20,20],
+[400,20],
+[780,20],
+[20,380],
+[400,380],
+[780,380]
+];
+
+holes.forEach(h=>{
+
+ctx.beginPath();
+ctx.arc(h[0],h[1],20,0,Math.PI*2);
+ctx.fillStyle='black';
+ctx.fill();
+
+});
+
+/* target */
+
+ctx.beginPath();
+ctx.arc(target.x,target.y,target.radius,0,Math.PI*2);
+ctx.fillStyle='#ff5e94';
+ctx.fill();
+
+/* ball */
+
+ctx.beginPath();
+ctx.arc(ball.x,ball.y,ball.radius,0,Math.PI*2);
+ctx.fillStyle='white';
+ctx.fill();
+
+/* physics */
+
+ball.x += ball.vx;
+ball.y += ball.vy;
+
+ball.vx *= 0.99;
+ball.vy *= 0.99;
+
+if(Math.abs(ball.vx)<0.05) ball.vx=0;
+if(Math.abs(ball.vy)<0.05) ball.vy=0;
+
+/* walls */
+
+if(ball.x<ball.radius || ball.x>canvas.width-ball.radius)
+ball.vx *= -1;
+
+if(ball.y<ball.radius || ball.y>canvas.height-ball.radius)
+ball.vy *= -1;
+
+/* collision */
+
+let dx = target.x-ball.x;
+let dy = target.y-ball.y;
+
+let dist = Math.sqrt(dx*dx+dy*dy);
+
+if(dist < ball.radius + target.radius){
+
+ctx.font='40px Poppins';
+ctx.fillStyle='white';
+ctx.fillText('NICE SHOT 🎉',270,70);
+
+}
+
+requestAnimationFrame(draw);
+
+}
+
+canvas.addEventListener('mousedown',(e)=>{
+
+dragging=true;
+
+const rect = canvas.getBoundingClientRect();
+
+startX = e.clientX - rect.left;
+startY = e.clientY - rect.top;
+
+});
+
+canvas.addEventListener('mouseup',(e)=>{
+
+if(dragging){
+
+const rect = canvas.getBoundingClientRect();
+
+let endX = e.clientX - rect.left;
+let endY = e.clientY - rect.top;
+
+ball.vx = (startX-endX)/10;
+ball.vy = (startY-endY)/10;
+
+dragging=false;
+
+}
+
+});
+
+draw();
+
+</script>
 
 </body>
 </html>
