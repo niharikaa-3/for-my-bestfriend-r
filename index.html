@@ -21,18 +21,65 @@ scroll-behavior:smooth;
 
 body{
 font-family:'Poppins',sans-serif;
-background:
-linear-gradient(
-180deg,
-#fffdfb 0%,
-#fff7f5 20%,
-#fdf6ff 40%,
-#f8f4ef 70%,
-#fffdf9 100%
-);
 overflow-x:hidden;
 color:#5f5753;
 position:relative;
+min-height:100vh;
+
+background:
+radial-gradient(circle at top left, #ffeef3 0%, transparent 30%),
+radial-gradient(circle at top right, #e9f0ff 0%, transparent 25%),
+radial-gradient(circle at bottom left, #fff2df 0%, transparent 30%),
+radial-gradient(circle at bottom right, #f6eaff 0%, transparent 25%),
+linear-gradient(
+180deg,
+#fffdfb 0%,
+#fff8f6 30%,
+#fdf8ff 60%,
+#fffdf8 100%
+);
+
+background-attachment:fixed;
+}
+
+/* DREAMY BACKGROUND */
+
+body::before,
+body::after{
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+border-radius:50%;
+filter:blur(90px);
+opacity:0.45;
+z-index:-2;
+animation:blobMove 14s ease-in-out infinite alternate;
+}
+
+body::before{
+background:#ffdfe8;
+top:-120px;
+left:-120px;
+}
+
+body::after{
+background:#dfe8ff;
+bottom:-150px;
+right:-120px;
+animation-delay:3s;
+}
+
+@keyframes blobMove{
+
+from{
+transform:translate(0px,0px) scale(1);
+}
+
+to{
+transform:translate(40px,-30px) scale(1.1);
+}
+
 }
 
 /* FLOATING STARS */
@@ -67,7 +114,7 @@ opacity:0;
 
 }
 
-/* WHITE ROSES */
+/* ROSES */
 
 .rose{
 position:absolute;
@@ -142,7 +189,9 @@ margin-top:40px;
 padding:16px 34px;
 border:none;
 border-radius:50px;
-background:white;
+background:rgba(255,255,255,0.65);
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
 cursor:pointer;
 transition:0.4s;
@@ -152,149 +201,6 @@ color:#665d58;
 
 .enter-btn:hover{
 transform:translateY(-5px) scale(1.03);
-}
-
-/* HUG ANIMATION */
-
-.hug-section{
-padding:30px 20px 0;
-text-align:center;
-}
-
-.animation-container{
-position:relative;
-width:240px;
-height:180px;
-margin:auto;
-animation:floaty 4s ease-in-out infinite;
-}
-
-@keyframes floaty{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-8px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
-/* GIRL */
-
-.girl{
-position:absolute;
-left:60px;
-top:30px;
-animation:hugGirl 2s infinite alternate ease-in-out;
-}
-
-.girl .head{
-width:42px;
-height:42px;
-background:#ffd9c7;
-border-radius:50%;
-position:absolute;
-}
-
-.girl .body{
-width:58px;
-height:75px;
-background:#ffe5ef;
-border-radius:30px;
-position:absolute;
-top:35px;
-left:-8px;
-}
-
-/* BOY */
-
-.boy{
-position:absolute;
-right:60px;
-top:30px;
-animation:hugBoy 2s infinite alternate ease-in-out;
-}
-
-.boy .head{
-width:42px;
-height:42px;
-background:#ffd9c7;
-border-radius:50%;
-position:absolute;
-}
-
-.boy .body{
-width:58px;
-height:75px;
-background:#dfe7ff;
-border-radius:30px;
-position:absolute;
-top:35px;
-left:-8px;
-}
-
-@keyframes hugGirl{
-
-from{
-transform:translateX(0px);
-}
-
-to{
-transform:translateX(12px);
-}
-
-}
-
-@keyframes hugBoy{
-
-from{
-transform:translateX(0px);
-}
-
-to{
-transform:translateX(-12px);
-}
-
-}
-
-/* HEART */
-
-.heart{
-position:absolute;
-left:50%;
-top:5px;
-transform:translateX(-50%);
-font-size:2rem;
-animation:pulse 1.8s infinite;
-}
-
-@keyframes pulse{
-
-0%{
-transform:translateX(-50%) scale(1);
-}
-
-50%{
-transform:translateX(-50%) scale(1.2);
-}
-
-100%{
-transform:translateX(-50%) scale(1);
-}
-
-}
-
-.hug-text{
-margin-top:20px;
-font-family:'Caveat',cursive;
-font-size:2rem;
-color:#7c706a;
 }
 
 /* SECTION */
@@ -320,9 +226,11 @@ gap:40px;
 }
 
 .polaroid{
-background:white;
+background:rgba(255,255,255,0.65);
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
 padding:15px 15px 55px;
-border-radius:10px;
+border-radius:15px;
 box-shadow:0 15px 35px rgba(0,0,0,0.08);
 position:relative;
 transition:0.4s;
@@ -336,7 +244,7 @@ transform:translateY(-8px) rotate(1deg);
 width:100%;
 height:320px;
 object-fit:cover;
-border-radius:6px;
+border-radius:8px;
 }
 
 .caption{
@@ -353,15 +261,17 @@ left:50%;
 transform:translateX(-50%);
 width:90px;
 height:25px;
-background:rgba(255,255,255,0.75);
+background:rgba(255,255,255,0.7);
 }
 
-/* FRIENDSHIP METER */
+/* METER */
 
 .meter-box{
 max-width:650px;
 margin:auto;
-background:white;
+background:rgba(255,255,255,0.65);
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
 padding:45px;
 border-radius:35px;
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
@@ -393,12 +303,14 @@ opacity:0.75;
 
 .envelope-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+grid-template-columns:repeat(3,1fr);
 gap:35px;
 }
 
 .envelope{
-background:#fffaf6;
+background:rgba(255,255,255,0.65);
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
 border-radius:25px;
 padding:30px;
 position:relative;
@@ -468,7 +380,9 @@ text-align:center;
 }
 
 .question-box{
-background:white;
+background:rgba(255,255,255,0.65);
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
 display:inline-block;
 padding:40px;
 border-radius:35px;
@@ -521,7 +435,9 @@ animation:fadeUp 0.8s ease;
 .secret-box{
 max-width:650px;
 margin:auto;
-background:white;
+background:rgba(255,255,255,0.65);
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
 padding:50px;
 border-radius:35px;
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
@@ -569,7 +485,7 @@ font-size:0.95rem;
 opacity:0.65;
 }
 
-/* ANIMATIONS */
+/* ANIMATION */
 
 @keyframes fadeUp{
 
@@ -587,7 +503,11 @@ transform:translateY(0);
 
 /* MOBILE */
 
-@media(max-width:768px){
+@media(max-width:900px){
+
+.envelope-grid{
+grid-template-columns:1fr;
+}
 
 .hero h1{
 font-size:4rem;
@@ -597,18 +517,12 @@ font-size:4rem;
 font-size:2.4rem;
 }
 
-.question-box{
-padding:25px;
-}
-
 }
 
 </style>
 </head>
 
 <body>
-
-<!-- FLOATING STARS -->
 
 <script>
 
@@ -631,7 +545,7 @@ document.body.appendChild(star);
 
 </script>
 
-<!-- WHITE ROSES -->
+<!-- ROSES -->
 
 <div class="rose rose1">🤍🌹</div>
 <div class="rose rose2">🤍🌹</div>
@@ -657,32 +571,6 @@ onclick="document.getElementById('memories').scrollIntoView()">
 enter our little scrapbook ✨
 </button>
 
-</div>
-
-</section>
-
-<!-- HUG SECTION -->
-
-<section class="hug-section">
-
-<div class="animation-container">
-
-<div class="girl">
-<div class="head"></div>
-<div class="body"></div>
-</div>
-
-<div class="boy">
-<div class="head"></div>
-<div class="body"></div>
-</div>
-
-<div class="heart">🤍</div>
-
-</div>
-
-<div class="hug-text">
-thank you for staying
 </div>
 
 </section>
@@ -781,143 +669,61 @@ letters for rohan 💌
 
 <div class="envelope-grid">
 
-<div class="envelope"
-onclick="toggleEnvelope(this)">
-
+<div class="envelope" onclick="toggleEnvelope(this)">
 <div class="flap"></div>
-
-<div class="envelope-title">
-open when sad
-</div>
-
+<div class="envelope-title">open when sad</div>
 <div class="letter">
-
 you never have to carry everything alone.
-i'll always be here for you no matter what.
-
-<div class="sign">
-— your comfort human 🤍
+i'll always be here for you.
+<div class="sign">— your comfort human 🤍</div>
+</div>
 </div>
 
-</div>
-
-</div>
-
-<div class="envelope"
-onclick="toggleEnvelope(this)">
-
+<div class="envelope" onclick="toggleEnvelope(this)">
 <div class="flap"></div>
-
-<div class="envelope-title">
-open when overthinking
-</div>
-
+<div class="envelope-title">open when overthinking</div>
 <div class="letter">
-
 drink water immediately before i fight you.<br><br>
-
 also you're loved way more than you realize.
-
-<div class="sign">
-— emotionally attached person
+<div class="sign">— emotionally attached person</div>
+</div>
 </div>
 
-</div>
-
-</div>
-
-<div class="envelope"
-onclick="toggleEnvelope(this)">
-
+<div class="envelope" onclick="toggleEnvelope(this)">
 <div class="flap"></div>
-
-<div class="envelope-title">
-open when you miss me
-</div>
-
+<div class="envelope-title">open when you miss me</div>
 <div class="letter">
-
 we're probably under the same sky
 thinking about the same sunsets anyway.
-
-<div class="sign">
-— always with you 🌙
+<div class="sign">— always with you 🌙</div>
+</div>
 </div>
 
-</div>
-
-</div>
-
-<div class="envelope"
-onclick="toggleEnvelope(this)">
-
+<div class="envelope" onclick="toggleEnvelope(this)">
 <div class="flap"></div>
-
-<div class="envelope-title">
-open when tired
-</div>
-
+<div class="envelope-title">open when tired</div>
 <div class="letter">
-
-you've already survived 100%
-of your hardest days.
-
-i'm proud of you for trying.
-
-<div class="sign">
-— your favorite person ✨
+i'm proud of you for trying even when things feel heavy.
+<div class="sign">— your favorite person ✨</div>
+</div>
 </div>
 
-</div>
-
-</div>
-
-<div class="envelope"
-onclick="toggleEnvelope(this)">
-
+<div class="envelope" onclick="toggleEnvelope(this)">
 <div class="flap"></div>
-
-<div class="envelope-title">
-open for emergency serotonin
-</div>
-
+<div class="envelope-title">open for emergency serotonin</div>
 <div class="letter">
-
-you are iconic,
-important,
-and legally required
-to stay forever.
-
-<div class="sign">
-— management 💌
+you are iconic and legally required to stay forever.
+<div class="sign">— management 💌</div>
+</div>
 </div>
 
-</div>
-
-</div>
-
-<div class="envelope"
-onclick="toggleEnvelope(this)">
-
+<div class="envelope" onclick="toggleEnvelope(this)">
 <div class="flap"></div>
-
-<div class="envelope-title">
-open after a sunset
-</div>
-
+<div class="envelope-title">open after a sunset</div>
 <div class="letter">
-
-some sunsets will always remind me of you.
-
-quiet happiness feels softer
-with you around.
-
-<div class="sign">
-— sunset partner 🌅
+quiet happiness feels softer with you around.
+<div class="sign">— sunset partner 🌅</div>
 </div>
-
-</div>
-
 </div>
 
 </div>
@@ -963,7 +769,7 @@ best parts of my life.
 
 </section>
 
-<!-- SECRET MEMORY BOX -->
+<!-- SECRET BOX -->
 
 <section class="section">
 
@@ -994,13 +800,11 @@ id="secretMessage">
 thank you for every memory,
 every comfort call,
 every laugh,
-every moment you stayed.
+and every moment you stayed.
 
 <br><br>
 
-some people quietly become home.
-
-🤍
+some people quietly become home 🤍
 
 </div>
 
