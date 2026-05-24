@@ -29,26 +29,26 @@ position:relative;
 background:
 linear-gradient(
 180deg,
-#5f6fa8 0%,
-#8d83b9 18%,
-#d6a7b8 38%,
-#f4d1c8 58%,
-#f9e7de 78%,
-#fff6f1 100%
+#5d6fa5 0%,
+#8f84ba 18%,
+#d7a9ba 38%,
+#f1cfc7 58%,
+#f8e6df 78%,
+#fff6f2 100%
 );
 
 }
 
-/* DREAMY GLOW */
+/* DREAMY OVERLAY */
 
 body::before{
 content:'';
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at 20% 20%, rgba(255,255,255,0.35), transparent 20%),
-radial-gradient(circle at 80% 30%, rgba(255,230,240,0.35), transparent 25%),
-radial-gradient(circle at 40% 80%, rgba(255,255,255,0.25), transparent 20%);
+radial-gradient(circle at 20% 20%, rgba(255,255,255,0.25), transparent 20%),
+radial-gradient(circle at 80% 30%, rgba(255,230,240,0.25), transparent 25%),
+radial-gradient(circle at 40% 80%, rgba(255,255,255,0.2), transparent 20%);
 pointer-events:none;
 z-index:-1;
 filter:blur(40px);
@@ -64,14 +64,14 @@ width:100%;
 display:flex;
 justify-content:space-around;
 padding:20px 0;
-z-index:5;
+z-index:10;
 pointer-events:none;
 }
 
 .light{
 width:12px;
 height:12px;
-background:#fff5d9;
+background:#fff7da;
 border-radius:50%;
 box-shadow:
 0 0 10px #fff7db,
@@ -126,29 +126,30 @@ opacity:0;
 
 .side-menu{
 position:fixed;
-left:25px;
+left:20px;
 top:50%;
 transform:translateY(-50%);
-background:rgba(255,255,255,0.35);
-backdrop-filter:blur(12px);
+background:rgba(255,255,255,0.22);
+backdrop-filter:blur(15px);
 padding:20px 12px;
 border-radius:30px;
 box-shadow:0 8px 25px rgba(0,0,0,0.08);
 display:flex;
 flex-direction:column;
 gap:20px;
-z-index:10;
+z-index:50;
 }
 
 .side-menu a{
 text-decoration:none;
 font-size:0.9rem;
-color:#6a5a61;
+color:#fff6f6;
 display:flex;
 flex-direction:column;
 align-items:center;
 gap:5px;
 transition:0.3s;
+font-family:'Patrick Hand',cursive;
 }
 
 .side-menu a:hover{
@@ -162,57 +163,40 @@ min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:80px 8%;
+padding:80px 10%;
 position:relative;
-}
-
-.hero-content{
-text-align:center;
-max-width:850px;
-position:relative;
-}
-
-.hero h1{
-font-family:'Caveat',cursive;
-font-size:6rem;
-font-weight:700;
-color:#fff8f8;
-text-shadow:0 4px 20px rgba(0,0,0,0.15);
-}
-
-.hero p{
-margin-top:20px;
-font-size:1.3rem;
-line-height:2;
-color:#fffdfd;
-font-family:'Patrick Hand',cursive;
 }
 
 /* POLAROIDS */
 
 .polaroid-strip{
 position:absolute;
-left:-80px;
+left:30px;
 top:50%;
 transform:translateY(-50%);
 display:flex;
 flex-direction:column;
-gap:25px;
+gap:22px;
+z-index:2;
 }
 
 .polaroid{
-width:180px;
-background:rgba(255,255,255,0.8);
-padding:12px 12px 40px;
+width:160px;
+background:rgba(255,248,245,0.82);
+padding:10px 10px 35px;
 border-radius:10px;
-box-shadow:0 15px 30px rgba(0,0,0,0.12);
-transform:rotate(-3deg);
-transition:0.4s;
+box-shadow:0 12px 30px rgba(0,0,0,0.12);
 position:relative;
+transition:0.4s;
+}
+
+.polaroid:nth-child(1){
+transform:rotate(-4deg);
 }
 
 .polaroid:nth-child(2){
-transform:rotate(2deg);
+transform:rotate(3deg);
+margin-left:25px;
 }
 
 .polaroid:nth-child(3){
@@ -225,27 +209,55 @@ transform:translateY(-8px) scale(1.03);
 
 .polaroid img{
 width:100%;
-height:180px;
+height:160px;
 object-fit:cover;
 border-radius:6px;
 }
 
 .polaroid p{
-margin-top:14px;
+margin-top:12px;
 text-align:center;
 font-family:'Patrick Hand',cursive;
-font-size:1.2rem;
-color:#6b5b63;
+font-size:1.15rem;
+color:#6f5662;
 }
 
 .tape{
 position:absolute;
-top:-12px;
+top:-10px;
 left:50%;
 transform:translateX(-50%) rotate(-2deg);
-width:70px;
-height:24px;
-background:rgba(255,255,255,0.6);
+width:65px;
+height:22px;
+background:rgba(255,255,255,0.55);
+backdrop-filter:blur(5px);
+border-radius:5px;
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+text-align:center;
+max-width:850px;
+}
+
+.hero h1{
+font-family:'Caveat',cursive;
+font-size:6rem;
+font-weight:700;
+color:#fff4f7;
+text-shadow:
+0 3px 12px rgba(0,0,0,0.15),
+0 0 18px rgba(255,255,255,0.25);
+}
+
+.hero p{
+margin-top:20px;
+font-size:1.35rem;
+line-height:2;
+font-family:'Patrick Hand',cursive;
+color:#fff7f4;
+opacity:0.96;
 }
 
 /* BUTTONS */
@@ -266,7 +278,7 @@ font-size:1.2rem;
 cursor:pointer;
 font-family:'Patrick Hand',cursive;
 transition:0.3s;
-background:rgba(255,255,255,0.25);
+background:rgba(255,255,255,0.22);
 backdrop-filter:blur(10px);
 color:white;
 box-shadow:0 10px 30px rgba(0,0,0,0.12);
@@ -276,7 +288,7 @@ box-shadow:0 10px 30px rgba(0,0,0,0.12);
 transform:translateY(-5px) scale(1.04);
 }
 
-/* LETTER SECTION */
+/* SECTION */
 
 .section{
 padding:120px 10%;
@@ -288,9 +300,12 @@ text-align:center;
 font-size:4rem;
 font-family:'Caveat',cursive;
 margin-bottom:70px;
-color:white;
-text-shadow:0 4px 15px rgba(0,0,0,0.12);
+color:#fff1f5;
+text-shadow:
+0 3px 10px rgba(0,0,0,0.12);
 }
+
+/* ENVELOPES */
 
 .envelope-grid{
 display:grid;
@@ -300,8 +315,8 @@ gap:35px;
 
 .envelope{
 position:relative;
-background:rgba(255,255,255,0.2);
-backdrop-filter:blur(14px);
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(16px);
 padding:30px;
 border-radius:28px;
 overflow:hidden;
@@ -320,7 +335,7 @@ top:0;
 left:0;
 width:100%;
 height:50%;
-background:rgba(255,230,235,0.8);
+background:rgba(255,230,235,0.75);
 clip-path:polygon(0 0,100% 0,50% 100%);
 transition:0.6s;
 }
@@ -335,7 +350,7 @@ margin-top:50px;
 text-align:center;
 font-family:'Patrick Hand',cursive;
 font-size:1.8rem;
-color:white;
+color:#fff7f8;
 position:relative;
 z-index:2;
 }
@@ -343,7 +358,7 @@ z-index:2;
 .letter{
 display:none;
 margin-top:25px;
-background:rgba(255,255,255,0.8);
+background:rgba(255,255,255,0.82);
 padding:24px;
 border-radius:20px;
 line-height:2;
@@ -362,7 +377,7 @@ font-family:'Caveat',cursive;
 font-size:1.5rem;
 }
 
-/* FOREVER QUESTION */
+/* QUESTION */
 
 .question-section{
 padding:120px 20px;
@@ -373,7 +388,7 @@ justify-content:center;
 .question-box{
 max-width:760px;
 width:100%;
-background:rgba(255,255,255,0.2);
+background:rgba(255,255,255,0.18);
 backdrop-filter:blur(16px);
 padding:60px;
 border-radius:40px;
@@ -385,7 +400,7 @@ text-align:center;
 .question-box h2{
 font-family:'Caveat',cursive;
 font-size:5rem;
-color:white;
+color:#fff7f8;
 line-height:1.2;
 }
 
@@ -430,14 +445,10 @@ color:#6b5c63;
 right:28%;
 }
 
-.yes-btn:hover{
-transform:scale(1.05);
-}
-
 .secret-answer{
 display:none;
 margin-top:50px;
-background:rgba(255,255,255,0.8);
+background:rgba(255,255,255,0.82);
 padding:35px;
 border-radius:28px;
 line-height:2;
@@ -453,7 +464,6 @@ position:absolute;
 bottom:-20px;
 right:20px;
 width:120px;
-opacity:0.95;
 border-radius:20px;
 box-shadow:0 10px 20px rgba(0,0,0,0.12);
 }
@@ -526,16 +536,15 @@ display:none;
 <div class="light"></div>
 <div class="light"></div>
 <div class="light"></div>
-<div class="light"></div>
 </div>
 
 <!-- SIDE MENU -->
 
 <div class="side-menu">
 
-<a href="#">🏠<span>Home</span></a>
-<a href="#letters">💌<span>Letters</span></a>
-<a href="#forever">🤍<span>Us</span></a>
+<a href="#">🏠 Home</a>
+<a href="#letters">💌 Letters</a>
+<a href="#forever">🤍 Us</a>
 
 </div>
 
@@ -720,7 +729,7 @@ made carefully for my favorite person ✨
 
 <script>
 
-/* FLOATING SPARKLES */
+/* SPARKLES */
 
 for(let i=0;i<40;i++){
 
