@@ -515,6 +515,82 @@ font-size:3.5rem;
 grid-template-columns:1fr;
 }
 
+/* PASSWORD SECTION */
+
+.password-box{
+max-width:700px;
+margin:auto;
+text-align:center;
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(16px);
+padding:60px;
+border-radius:35px;
+box-shadow:0 15px 35px rgba(0,0,0,0.1);
+}
+
+.password-text{
+font-family:'Patrick Hand',cursive;
+font-size:1.4rem;
+color:#fff8fb;
+margin-bottom:30px;
+}
+
+.password-box input{
+width:80%;
+padding:18px;
+border:none;
+outline:none;
+border-radius:18px;
+background:rgba(255,255,255,0.75);
+font-size:1rem;
+font-family:'Nunito',sans-serif;
+color:#6b5861;
+}
+
+.unlock-btn{
+margin-top:25px;
+padding:16px 38px;
+border:none;
+border-radius:50px;
+background:#ffd4df;
+color:#6d5560;
+font-size:1.1rem;
+font-family:'Patrick Hand',cursive;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.unlock-btn:hover{
+transform:translateY(-4px) scale(1.04);
+}
+
+.hidden-message{
+display:none;
+margin-top:40px;
+animation:fadeUp 0.8s ease;
+}
+
+.secret-card{
+background:rgba(255,255,255,0.82);
+padding:40px;
+border-radius:28px;
+line-height:2;
+color:#654f58;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.secret-card h3{
+font-family:'Caveat',cursive;
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.secret-sign{
+margin-top:25px;
+font-family:'Caveat',cursive;
+font-size:1.8rem;
+}
 }
 
 </style>
@@ -716,6 +792,69 @@ and more white roses 🤍
 
 </section>
 
+<!-- SECRET PASSWORD SECTION -->
+
+<section class="section">
+
+<h2 class="section-title">
+Secret memory box 🔐
+</h2>
+
+<div class="password-box">
+
+<p class="password-text">
+Only Rohan knows the password ♡
+</p>
+
+<input
+type="password"
+id="secretPassword"
+placeholder="enter password">
+
+<br>
+
+<button class="unlock-btn"
+onclick="unlockMessage()">
+Unlock ✨
+</button>
+
+<div class="hidden-message" id="hiddenMessage">
+
+<div class="secret-card">
+
+<h3>Dear Rohan 🤍</h3>
+
+<p>
+Thank you for every late night call,
+every comfort conversation,
+every sunset,
+every shared meal,
+every time you dropped me back home,
+every time you understood and didn't get upset,
+every time when you stayed,
+every tiny moment that became special
+because you were there.
+<br><br>
+
+Some people quietly become home,
+and you became one.
+<br><br>
+
+I hope life is always soft with you.
+</p>
+
+<div class="secret-sign">
+— Your biggest cheer leader 🌙
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
 <footer>
 Made with love for my favorite person ✨
 </footer>
@@ -824,6 +963,27 @@ let y=Math.random()*60;
 
 btn.style.transform=
 `translate(${x}px,${y}px)`;
+
+}
+
+/* PASSWORD MESSAGE */
+
+function unlockMessage(){
+
+let password =
+document.getElementById('secretPassword').value;
+
+if(password.toLowerCase() === "white"){
+
+document.getElementById('hiddenMessage').style.display = "block";
+
+createHearts();
+
+}else{
+
+alert("Wrong password 🤍");
+
+}
 
 }
 
