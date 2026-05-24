@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For Rohan 🤍</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Caveat:wght@400;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Patrick+Hand&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -22,36 +23,33 @@ scroll-behavior:smooth;
 body{
 font-family:'Nunito',sans-serif;
 overflow-x:hidden;
-min-height:100vh;
-color:#5f4b52;
-position:relative;
-
 background:
 linear-gradient(
 180deg,
-#5d6fa5 0%,
-#8f84ba 18%,
-#d7a9ba 38%,
-#f1cfc7 58%,
-#f8e6df 78%,
-#fff6f2 100%
+#6070a8 0%,
+#8e84bb 18%,
+#d8a9ba 40%,
+#f0d0c9 62%,
+#faebe5 82%,
+#fff8f4 100%
 );
-
+min-height:100vh;
+position:relative;
 }
 
-/* DREAMY OVERLAY */
+/* DREAMY GLOW */
 
 body::before{
 content:'';
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle at 20% 20%, rgba(255,255,255,0.25), transparent 20%),
-radial-gradient(circle at 80% 30%, rgba(255,230,240,0.25), transparent 25%),
-radial-gradient(circle at 40% 80%, rgba(255,255,255,0.2), transparent 20%);
+radial-gradient(circle at 20% 20%, rgba(255,255,255,0.25), transparent 25%),
+radial-gradient(circle at 80% 30%, rgba(255,220,240,0.25), transparent 25%),
+radial-gradient(circle at 50% 80%, rgba(255,255,255,0.2), transparent 20%);
+filter:blur(40px);
 pointer-events:none;
 z-index:-1;
-filter:blur(40px);
 }
 
 /* FAIRY LIGHTS */
@@ -63,20 +61,20 @@ left:0;
 width:100%;
 display:flex;
 justify-content:space-around;
-padding:20px 0;
-z-index:10;
+padding:18px;
+z-index:20;
 pointer-events:none;
 }
 
 .light{
 width:12px;
 height:12px;
-background:#fff7da;
+background:#fff8d6;
 border-radius:50%;
 box-shadow:
-0 0 10px #fff7db,
-0 0 25px #fff2c7,
-0 0 40px #ffe7a3;
+0 0 12px #fff5c7,
+0 0 28px #fff0aa,
+0 0 45px #ffe58c;
 animation:twinkle 2s infinite alternate;
 }
 
@@ -98,9 +96,10 @@ transform:scale(1.2);
 
 .sparkle{
 position:fixed;
-font-size:12px;
+font-size:14px;
+pointer-events:none;
 animation:floatSparkle linear infinite;
-opacity:0.8;
+opacity:0.7;
 z-index:-1;
 }
 
@@ -129,27 +128,23 @@ position:fixed;
 left:20px;
 top:50%;
 transform:translateY(-50%);
-background:rgba(255,255,255,0.22);
-backdrop-filter:blur(15px);
-padding:20px 12px;
-border-radius:30px;
-box-shadow:0 8px 25px rgba(0,0,0,0.08);
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(12px);
+padding:22px 14px;
+border-radius:28px;
 display:flex;
 flex-direction:column;
-gap:20px;
+gap:22px;
 z-index:50;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
 .side-menu a{
 text-decoration:none;
-font-size:0.9rem;
-color:#fff6f6;
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:5px;
-transition:0.3s;
+color:#fff7f7;
 font-family:'Patrick Hand',cursive;
+font-size:1rem;
+transition:0.3s;
 }
 
 .side-menu a:hover{
@@ -163,7 +158,7 @@ min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-padding:80px 10%;
+padding:80px 10% 80px 320px;
 position:relative;
 }
 
@@ -171,22 +166,20 @@ position:relative;
 
 .polaroid-strip{
 position:absolute;
-left:30px;
-top:50%;
-transform:translateY(-50%);
+left:40px;
+top:100px;
 display:flex;
 flex-direction:column;
-gap:22px;
-z-index:2;
+gap:24px;
 }
 
 .polaroid{
-width:160px;
+width:170px;
 background:rgba(255,248,245,0.82);
-padding:10px 10px 35px;
+padding:10px 10px 38px;
 border-radius:10px;
-box-shadow:0 12px 30px rgba(0,0,0,0.12);
 position:relative;
+box-shadow:0 12px 30px rgba(0,0,0,0.12);
 transition:0.4s;
 }
 
@@ -209,7 +202,7 @@ transform:translateY(-8px) scale(1.03);
 
 .polaroid img{
 width:100%;
-height:160px;
+height:170px;
 object-fit:cover;
 border-radius:6px;
 }
@@ -218,20 +211,20 @@ border-radius:6px;
 margin-top:12px;
 text-align:center;
 font-family:'Patrick Hand',cursive;
-font-size:1.15rem;
-color:#6f5662;
+font-size:1.1rem;
+color:#6d5760;
 }
 
 .tape{
 position:absolute;
 top:-10px;
 left:50%;
-transform:translateX(-50%) rotate(-2deg);
-width:65px;
+transform:translateX(-50%);
+width:70px;
 height:22px;
 background:rgba(255,255,255,0.55);
-backdrop-filter:blur(5px);
 border-radius:5px;
+backdrop-filter:blur(5px);
 }
 
 /* HERO CONTENT */
@@ -244,20 +237,18 @@ max-width:850px;
 .hero h1{
 font-family:'Caveat',cursive;
 font-size:6rem;
-font-weight:700;
-color:#fff4f7;
+color:#fff5f7;
 text-shadow:
-0 3px 12px rgba(0,0,0,0.15),
-0 0 18px rgba(255,255,255,0.25);
+0 3px 15px rgba(0,0,0,0.15),
+0 0 20px rgba(255,255,255,0.25);
 }
 
 .hero p{
-margin-top:20px;
-font-size:1.35rem;
-line-height:2;
+margin-top:18px;
 font-family:'Patrick Hand',cursive;
-color:#fff7f4;
-opacity:0.96;
+font-size:1.5rem;
+line-height:2;
+color:#fff8f8;
 }
 
 /* BUTTONS */
@@ -266,43 +257,76 @@ opacity:0.96;
 margin-top:40px;
 display:flex;
 justify-content:center;
-gap:25px;
+gap:24px;
 flex-wrap:wrap;
 }
 
 .hero-btn{
 padding:18px 42px;
 border:none;
-border-radius:50px;
-font-size:1.2rem;
-cursor:pointer;
-font-family:'Patrick Hand',cursive;
-transition:0.3s;
-background:rgba(255,255,255,0.22);
-backdrop-filter:blur(10px);
+border-radius:60px;
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(12px);
 color:white;
-box-shadow:0 10px 30px rgba(0,0,0,0.12);
+font-size:1.2rem;
+font-family:'Patrick Hand',cursive;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
 .hero-btn:hover{
-transform:translateY(-5px) scale(1.04);
+transform:translateY(-5px) scale(1.05);
+}
+
+/* HERO MESSAGE */
+
+.hero-message{
+margin-top:30px;
+font-family:'Patrick Hand',cursive;
+font-size:1.4rem;
+color:#fff7fb;
+min-height:40px;
+text-shadow:0 3px 10px rgba(0,0,0,0.12);
+}
+
+/* HEARTS */
+
+.floating-heart{
+position:fixed;
+font-size:22px;
+pointer-events:none;
+animation:heartFloat 2.8s linear forwards;
+z-index:999;
+}
+
+@keyframes heartFloat{
+
+0%{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+
+100%{
+opacity:0;
+transform:translateY(-180px) scale(1.8);
+}
+
 }
 
 /* SECTION */
 
 .section{
 padding:120px 10%;
-position:relative;
 }
 
 .section-title{
 text-align:center;
-font-size:4rem;
 font-family:'Caveat',cursive;
+font-size:4rem;
 margin-bottom:70px;
-color:#fff1f5;
-text-shadow:
-0 3px 10px rgba(0,0,0,0.12);
+color:#fff5f8;
+text-shadow:0 3px 12px rgba(0,0,0,0.12);
 }
 
 /* ENVELOPES */
@@ -314,15 +338,15 @@ gap:35px;
 }
 
 .envelope{
-position:relative;
 background:rgba(255,255,255,0.18);
-backdrop-filter:blur(16px);
+backdrop-filter:blur(15px);
 padding:30px;
-border-radius:28px;
+border-radius:30px;
+position:relative;
 overflow:hidden;
 cursor:pointer;
 transition:0.4s;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
 .envelope:hover{
@@ -335,7 +359,7 @@ top:0;
 left:0;
 width:100%;
 height:50%;
-background:rgba(255,230,235,0.75);
+background:rgba(255,230,236,0.75);
 clip-path:polygon(0 0,100% 0,50% 100%);
 transition:0.6s;
 }
@@ -350,20 +374,20 @@ margin-top:50px;
 text-align:center;
 font-family:'Patrick Hand',cursive;
 font-size:1.8rem;
-color:#fff7f8;
+color:#fff8f9;
 position:relative;
 z-index:2;
 }
 
 .letter{
 display:none;
-margin-top:25px;
+margin-top:24px;
 background:rgba(255,255,255,0.82);
 padding:24px;
 border-radius:20px;
-line-height:2;
 font-size:1rem;
-color:#5f4d54;
+line-height:2;
+color:#654f58;
 animation:fadeUp 0.8s ease;
 }
 
@@ -377,7 +401,7 @@ font-family:'Caveat',cursive;
 font-size:1.5rem;
 }
 
-/* QUESTION */
+/* FOREVER SECTION */
 
 .question-section{
 padding:120px 20px;
@@ -392,16 +416,15 @@ background:rgba(255,255,255,0.18);
 backdrop-filter:blur(16px);
 padding:60px;
 border-radius:40px;
+text-align:center;
 position:relative;
 box-shadow:0 15px 35px rgba(0,0,0,0.1);
-text-align:center;
 }
 
 .question-box h2{
 font-family:'Caveat',cursive;
 font-size:5rem;
 color:#fff7f8;
-line-height:1.2;
 }
 
 .question-box p{
@@ -425,12 +448,12 @@ height:90px;
 padding:18px 50px;
 border:none;
 border-radius:60px;
-font-size:1.6rem;
+font-size:1.5rem;
 cursor:pointer;
 font-family:'Patrick Hand',cursive;
-transition:0.3s;
 position:absolute;
-box-shadow:0 8px 25px rgba(0,0,0,0.12);
+transition:0.3s;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
 }
 
 .yes-btn{
@@ -441,16 +464,16 @@ left:28%;
 
 .no-btn{
 background:white;
-color:#6b5c63;
+color:#6d5862;
 right:28%;
 }
 
 .secret-answer{
 display:none;
-margin-top:50px;
+margin-top:45px;
 background:rgba(255,255,255,0.82);
 padding:35px;
-border-radius:28px;
+border-radius:24px;
 line-height:2;
 font-size:1.1rem;
 color:#654f58;
@@ -473,9 +496,9 @@ box-shadow:0 10px 20px rgba(0,0,0,0.12);
 footer{
 padding:80px 20px;
 text-align:center;
-color:white;
 font-family:'Patrick Hand',cursive;
 font-size:1.2rem;
+color:white;
 }
 
 /* ANIMATION */
@@ -484,7 +507,7 @@ font-size:1.2rem;
 
 from{
 opacity:0;
-transform:translateY(25px);
+transform:translateY(20px);
 }
 
 to{
@@ -498,12 +521,16 @@ transform:translateY(0);
 
 @media(max-width:1100px){
 
+.side-menu{
+display:none;
+}
+
 .polaroid-strip{
 display:none;
 }
 
-.envelope-grid{
-grid-template-columns:1fr;
+.hero{
+padding:120px 20px;
 }
 
 .hero h1{
@@ -514,8 +541,8 @@ font-size:4rem;
 font-size:3.5rem;
 }
 
-.side-menu{
-display:none;
+.envelope-grid{
+grid-template-columns:1fr;
 }
 
 }
@@ -525,9 +552,10 @@ display:none;
 
 <body>
 
-<!-- LIGHTS -->
+<!-- FAIRY LIGHTS -->
 
 <div class="lights">
+
 <div class="light"></div>
 <div class="light"></div>
 <div class="light"></div>
@@ -535,7 +563,7 @@ display:none;
 <div class="light"></div>
 <div class="light"></div>
 <div class="light"></div>
-<div class="light"></div>
+
 </div>
 
 <!-- SIDE MENU -->
@@ -558,23 +586,25 @@ display:none;
 
 <div class="polaroid">
 <div class="tape"></div>
-<img src="YOUR_IMAGE_1">
+<img src="images/sunset.jpg">
 <p>our sunsets ♡</p>
 </div>
 
 <div class="polaroid">
 <div class="tape"></div>
-<img src="YOUR_IMAGE_2">
+<img src="images/roses.jpg">
 <p>white roses ♡</p>
 </div>
 
 <div class="polaroid">
 <div class="tape"></div>
-<img src="YOUR_IMAGE_3">
+<img src="images/call.jpg">
 <p>late night talks ♡</p>
 </div>
 
 </div>
+
+<!-- MAIN CONTENT -->
 
 <div class="hero-content">
 
@@ -587,21 +617,25 @@ will you always be my favorite person?<br>
 
 <div class="hero-buttons">
 
-<button class="hero-btn">
+<button class="hero-btn"
+onclick="showYesLove()">
 yes 🤍
 </button>
 
-<button class="hero-btn">
+<button class="hero-btn"
+onclick="showForeverLove()">
 forever ✨
 </button>
 
 </div>
 
+<div id="heroMessage" class="hero-message"></div>
+
 </div>
 
 </section>
 
-<!-- LETTERS -->
+<!-- LETTER SECTION -->
 
 <section class="section" id="letters">
 
@@ -625,8 +659,8 @@ i'll always be here for you.
 <div class="flap"></div>
 <div class="envelope-title">open when overthinking</div>
 <div class="letter">
-you're loved way more than you realize.
-<div class="sign">— emotionally attached person</div>
+you're loved more than you realize.
+<div class="sign">— emotionally attached person ✨</div>
 </div>
 </div>
 
@@ -635,7 +669,7 @@ you're loved way more than you realize.
 <div class="envelope-title">open when tired</div>
 <div class="letter">
 i'm proud of you for trying every day.
-<div class="sign">— always rooting for you ✨</div>
+<div class="sign">— always rooting for you 🌙</div>
 </div>
 </div>
 
@@ -644,7 +678,7 @@ i'm proud of you for trying every day.
 <div class="envelope-title">open when you miss me</div>
 <div class="letter">
 we're probably looking at the same sky anyway.
-<div class="sign">— your person 🌙</div>
+<div class="sign">— your person 🤍</div>
 </div>
 </div>
 
@@ -652,7 +686,7 @@ we're probably looking at the same sky anyway.
 <div class="flap"></div>
 <div class="envelope-title">open for serotonin</div>
 <div class="letter">
-you are iconic and legally required to stay forever.
+you are legally required to stay forever.
 <div class="sign">— management 💌</div>
 </div>
 </div>
@@ -670,7 +704,7 @@ quiet happiness feels softer with you around.
 
 </section>
 
-<!-- FOREVER SECTION -->
+<!-- FOREVER -->
 
 <section class="question-section" id="forever">
 
@@ -716,8 +750,7 @@ and more white roses 🌹
 
 </div>
 
-<img src="YOUR_CAT_IMAGE"
-class="cat">
+<img src="images/cat.jpg" class="cat">
 
 </div>
 
@@ -729,7 +762,7 @@ made carefully for my favorite person ✨
 
 <script>
 
-/* SPARKLES */
+/* FLOATING SPARKLES */
 
 for(let i=0;i<40;i++){
 
@@ -761,9 +794,62 @@ card.classList.toggle('open');
 
 /* YES BUTTON */
 
+function showYesLove(){
+
+document.getElementById('heroMessage').innerHTML =
+"you are genuinely one of the best things that happened to me 🤍";
+
+createHearts();
+
+}
+
+/* FOREVER BUTTON */
+
+function showForeverLove(){
+
+document.getElementById('heroMessage').innerHTML =
+"okay good because you're not allowed to leave now ✨";
+
+createHearts();
+
+}
+
+/* HEART ANIMATION */
+
+function createHearts(){
+
+for(let i=0;i<18;i++){
+
+let heart=document.createElement('div');
+
+heart.classList.add('floating-heart');
+
+heart.innerHTML=Math.random()>0.5 ? '🤍' : '✨';
+
+heart.style.left=Math.random()*100+'vw';
+
+heart.style.top=(window.innerHeight-120)+'px';
+
+heart.style.animationDuration=
+(2+Math.random()*2)+'s';
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},3000);
+
+}
+
+}
+
+/* FOREVER SECTION */
+
 function showLoveMessage(){
 
 document.getElementById('secretAnswer').style.display='block';
+
+createHearts();
 
 }
 
