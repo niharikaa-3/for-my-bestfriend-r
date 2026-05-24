@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Rohan 🤍</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
@@ -21,9 +21,17 @@ scroll-behavior:smooth;
 
 body{
 font-family:'Poppins',sans-serif;
-background:linear-gradient(to bottom,#fffdfb,#f8f4ef,#fffaf7);
+background:
+linear-gradient(
+180deg,
+#fffdfb 0%,
+#fff7f5 20%,
+#fdf6ff 40%,
+#f8f4ef 70%,
+#fffdf9 100%
+);
 overflow-x:hidden;
-color:#5c5552;
+color:#5f5753;
 position:relative;
 }
 
@@ -31,28 +39,72 @@ position:relative;
 
 .star{
 position:fixed;
-width:5px;
-height:5px;
+width:6px;
+height:6px;
 background:white;
 border-radius:50%;
 box-shadow:0 0 10px white;
 animation:floatUp linear infinite;
-opacity:0.8;
+opacity:0.7;
 z-index:-1;
 }
 
 @keyframes floatUp{
+
 from{
 transform:translateY(100vh);
 opacity:0;
 }
+
 30%{
 opacity:1;
 }
+
 to{
 transform:translateY(-120vh);
 opacity:0;
 }
+
+}
+
+/* WHITE ROSES */
+
+.rose{
+position:absolute;
+font-size:2rem;
+opacity:0.75;
+animation:roseFloat 6s ease-in-out infinite;
+}
+
+.rose1{
+top:180px;
+left:5%;
+}
+
+.rose2{
+top:900px;
+right:6%;
+}
+
+.rose3{
+bottom:250px;
+left:8%;
+}
+
+@keyframes roseFloat{
+
+0%{
+transform:translateY(0px) rotate(0deg);
+}
+
+50%{
+transform:translateY(-10px) rotate(5deg);
+}
+
+100%{
+transform:translateY(0px) rotate(0deg);
+}
+
 }
 
 /* HERO */
@@ -68,22 +120,21 @@ position:relative;
 }
 
 .hero-content{
-max-width:750px;
+max-width:760px;
 animation:fadeUp 1.5s ease;
 }
 
 .hero h1{
-font-size:5rem;
 font-family:'Caveat',cursive;
-color:#5b514c;
-margin-bottom:10px;
+font-size:5.5rem;
+color:#665d58;
 }
 
 .hero p{
+margin-top:20px;
 font-size:1.1rem;
 line-height:2;
 opacity:0.75;
-margin-top:20px;
 }
 
 .enter-btn{
@@ -94,43 +145,156 @@ border-radius:50px;
 background:white;
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
 cursor:pointer;
-font-size:1rem;
 transition:0.4s;
-color:#5b514c;
+font-size:1rem;
+color:#665d58;
 }
 
 .enter-btn:hover{
-transform:translateY(-4px) scale(1.03);
+transform:translateY(-5px) scale(1.03);
 }
 
-/* HUG SECTION */
+/* HUG ANIMATION */
 
 .hug-section{
-padding:40px 20px 0;
+padding:30px 20px 0;
 text-align:center;
 }
 
-.hug-box{
-display:inline-block;
+.animation-container{
 position:relative;
-animation:sway 4s ease-in-out infinite;
+width:240px;
+height:180px;
+margin:auto;
+animation:floaty 4s ease-in-out infinite;
 }
 
-.hug{
-font-size:5rem;
+@keyframes floaty{
+
+0%{
+transform:translateY(0px);
 }
 
-@keyframes sway{
-0%{transform:rotate(-2deg);}
-50%{transform:rotate(2deg);}
-100%{transform:rotate(-2deg);}
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* GIRL */
+
+.girl{
+position:absolute;
+left:60px;
+top:30px;
+animation:hugGirl 2s infinite alternate ease-in-out;
+}
+
+.girl .head{
+width:42px;
+height:42px;
+background:#ffd9c7;
+border-radius:50%;
+position:absolute;
+}
+
+.girl .body{
+width:58px;
+height:75px;
+background:#ffe5ef;
+border-radius:30px;
+position:absolute;
+top:35px;
+left:-8px;
+}
+
+/* BOY */
+
+.boy{
+position:absolute;
+right:60px;
+top:30px;
+animation:hugBoy 2s infinite alternate ease-in-out;
+}
+
+.boy .head{
+width:42px;
+height:42px;
+background:#ffd9c7;
+border-radius:50%;
+position:absolute;
+}
+
+.boy .body{
+width:58px;
+height:75px;
+background:#dfe7ff;
+border-radius:30px;
+position:absolute;
+top:35px;
+left:-8px;
+}
+
+@keyframes hugGirl{
+
+from{
+transform:translateX(0px);
+}
+
+to{
+transform:translateX(12px);
+}
+
+}
+
+@keyframes hugBoy{
+
+from{
+transform:translateX(0px);
+}
+
+to{
+transform:translateX(-12px);
+}
+
+}
+
+/* HEART */
+
+.heart{
+position:absolute;
+left:50%;
+top:5px;
+transform:translateX(-50%);
+font-size:2rem;
+animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+
+0%{
+transform:translateX(-50%) scale(1);
+}
+
+50%{
+transform:translateX(-50%) scale(1.2);
+}
+
+100%{
+transform:translateX(-50%) scale(1);
+}
+
 }
 
 .hug-text{
+margin-top:20px;
 font-family:'Caveat',cursive;
 font-size:2rem;
-margin-top:15px;
-color:#7b6f68;
+color:#7c706a;
 }
 
 /* SECTION */
@@ -141,10 +305,10 @@ padding:110px 10%;
 
 .section-title{
 text-align:center;
-font-size:3rem;
 font-family:'Caveat',cursive;
+font-size:3rem;
 margin-bottom:70px;
-color:#645b56;
+color:#6c625d;
 }
 
 /* SCRAPBOOK */
@@ -160,8 +324,8 @@ background:white;
 padding:15px 15px 55px;
 border-radius:10px;
 box-shadow:0 15px 35px rgba(0,0,0,0.08);
-transition:0.4s;
 position:relative;
+transition:0.4s;
 }
 
 .polaroid:hover{
@@ -172,7 +336,7 @@ transform:translateY(-8px) rotate(1deg);
 width:100%;
 height:320px;
 object-fit:cover;
-border-radius:5px;
+border-radius:6px;
 }
 
 .caption{
@@ -180,7 +344,6 @@ margin-top:20px;
 text-align:center;
 font-family:'Caveat',cursive;
 font-size:1.5rem;
-color:#6d625d;
 }
 
 .tape{
@@ -190,11 +353,10 @@ left:50%;
 transform:translateX(-50%);
 width:90px;
 height:25px;
-background:rgba(255,255,255,0.7);
-backdrop-filter:blur(3px);
+background:rgba(255,255,255,0.75);
 }
 
-/* METER */
+/* FRIENDSHIP METER */
 
 .meter-box{
 max-width:650px;
@@ -209,7 +371,7 @@ text-align:center;
 .meter-bar{
 width:100%;
 height:20px;
-background:#f1ece8;
+background:#f5efea;
 border-radius:50px;
 overflow:hidden;
 margin:30px 0;
@@ -218,13 +380,12 @@ margin:30px 0;
 .fill{
 height:100%;
 width:0%;
-background:linear-gradient(to right,#ffd8d8,#fff0d9);
+background:linear-gradient(to right,#ffdce6,#fff0d6);
 transition:2s;
 }
 
 .meter-result{
 margin-top:20px;
-font-size:1.1rem;
 opacity:0.75;
 }
 
@@ -232,19 +393,19 @@ opacity:0.75;
 
 .envelope-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:35px;
 }
 
 .envelope{
 background:#fffaf6;
-border-radius:22px;
+border-radius:25px;
 padding:30px;
 position:relative;
+overflow:hidden;
 cursor:pointer;
 transition:0.4s;
 box-shadow:0 12px 25px rgba(0,0,0,0.07);
-overflow:hidden;
 }
 
 .envelope:hover{
@@ -257,7 +418,7 @@ top:0;
 left:0;
 width:100%;
 height:50%;
-background:#f8ebe5;
+background:#f7e8e3;
 clip-path:polygon(0 0,100% 0,50% 100%);
 transition:0.6s;
 }
@@ -274,7 +435,7 @@ margin-top:50px;
 text-align:center;
 font-family:'Caveat',cursive;
 font-size:1.8rem;
-color:#6f6460;
+color:#6d625d;
 }
 
 .letter{
@@ -299,7 +460,63 @@ font-family:'Caveat',cursive;
 font-size:1.4rem;
 }
 
-/* SECRET */
+/* SECRET QUESTION */
+
+.hidden-question{
+padding:50px 20px 100px;
+text-align:center;
+}
+
+.question-box{
+background:white;
+display:inline-block;
+padding:40px;
+border-radius:35px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+max-width:550px;
+}
+
+.question-box h3{
+font-family:'Caveat',cursive;
+font-size:2.4rem;
+color:#6c625d;
+}
+
+.question-buttons{
+margin-top:30px;
+position:relative;
+height:90px;
+}
+
+.yes-btn,
+.no-btn{
+padding:14px 30px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+font-size:1rem;
+transition:0.3s;
+position:absolute;
+}
+
+.yes-btn{
+background:#ffe7ef;
+left:28%;
+}
+
+.no-btn{
+background:#edf1ff;
+right:28%;
+}
+
+.secret-answer{
+display:none;
+margin-top:30px;
+line-height:1.8;
+animation:fadeUp 0.8s ease;
+}
+
+/* SECRET BOX */
 
 .secret-box{
 max-width:650px;
@@ -355,14 +572,17 @@ opacity:0.65;
 /* ANIMATIONS */
 
 @keyframes fadeUp{
+
 from{
 opacity:0;
 transform:translateY(30px);
 }
+
 to{
 opacity:1;
 transform:translateY(0);
 }
+
 }
 
 /* MOBILE */
@@ -374,11 +594,11 @@ font-size:4rem;
 }
 
 .section-title{
-font-size:2.3rem;
+font-size:2.4rem;
 }
 
-.hug{
-font-size:4rem;
+.question-box{
+padding:25px;
 }
 
 }
@@ -391,19 +611,31 @@ font-size:4rem;
 <!-- FLOATING STARS -->
 
 <script>
+
 for(let i=0;i<35;i++){
 
 let star=document.createElement('div');
+
 star.classList.add('star');
 
 star.style.left=Math.random()*100+'vw';
-star.style.animationDuration=(10+Math.random()*10)+'s';
+
+star.style.animationDuration=
+(10+Math.random()*10)+'s';
+
 star.style.opacity=Math.random();
 
 document.body.appendChild(star);
 
 }
+
 </script>
+
+<!-- WHITE ROSES -->
+
+<div class="rose rose1">🤍🌹</div>
+<div class="rose rose2">🤍🌹</div>
+<div class="rose rose3">🤍🌹</div>
 
 <!-- HERO -->
 
@@ -429,20 +661,28 @@ enter our little scrapbook ✨
 
 </section>
 
-<!-- HUG -->
+<!-- HUG SECTION -->
 
 <section class="hug-section">
 
-<div class="hug-box">
+<div class="animation-container">
 
-<div class="hug">
-🧍🏻‍♀️🤍🧍🏻‍♂️
+<div class="girl">
+<div class="head"></div>
+<div class="body"></div>
+</div>
+
+<div class="boy">
+<div class="head"></div>
+<div class="body"></div>
+</div>
+
+<div class="heart">🤍</div>
+
 </div>
 
 <div class="hug-text">
 thank you for staying
-</div>
-
 </div>
 
 </section>
@@ -458,6 +698,7 @@ our little memories 📸
 <div class="scrapbook">
 
 <div class="polaroid">
+
 <div class="tape"></div>
 
 <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop">
@@ -465,19 +706,23 @@ our little memories 📸
 <div class="caption">
 another sunset together
 </div>
+
 </div>
 
 <div class="polaroid">
+
 <div class="tape"></div>
 
 <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop">
 
 <div class="caption">
-flowers because words weren't enough
+white roses because words weren't enough
 </div>
+
 </div>
 
 <div class="polaroid">
+
 <div class="tape"></div>
 
 <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop">
@@ -485,6 +730,7 @@ flowers because words weren't enough
 <div class="caption">
 late night comfort calls
 </div>
+
 </div>
 
 </div>
@@ -509,19 +755,23 @@ scanning friendship levels...
 <div class="fill" id="fill"></div>
 </div>
 
-<button class="enter-btn" onclick="runMeter()">
+<button class="enter-btn"
+onclick="runMeter()">
 scan ✨
 </button>
 
-<div class="meter-result" id="meterResult">
+<div class="meter-result"
+id="meterResult">
+
 friendship status pending...
+
 </div>
 
 </div>
 
 </section>
 
-<!-- ENVELOPES -->
+<!-- LETTERS -->
 
 <section class="section">
 
@@ -531,7 +781,9 @@ letters for rohan 💌
 
 <div class="envelope-grid">
 
-<div class="envelope" onclick="toggleEnvelope(this)">
+<div class="envelope"
+onclick="toggleEnvelope(this)">
+
 <div class="flap"></div>
 
 <div class="envelope-title">
@@ -539,16 +791,21 @@ open when sad
 </div>
 
 <div class="letter">
+
 you never have to carry everything alone.
 i'll always be here for you no matter what.
+
 <div class="sign">
 — your comfort human 🤍
 </div>
-</div>
 
 </div>
 
-<div class="envelope" onclick="toggleEnvelope(this)">
+</div>
+
+<div class="envelope"
+onclick="toggleEnvelope(this)">
+
 <div class="flap"></div>
 
 <div class="envelope-title">
@@ -556,16 +813,22 @@ open when overthinking
 </div>
 
 <div class="letter">
+
 drink water immediately before i fight you.<br><br>
+
 also you're loved way more than you realize.
+
 <div class="sign">
 — emotionally attached person
 </div>
-</div>
 
 </div>
 
-<div class="envelope" onclick="toggleEnvelope(this)">
+</div>
+
+<div class="envelope"
+onclick="toggleEnvelope(this)">
+
 <div class="flap"></div>
 
 <div class="envelope-title">
@@ -573,16 +836,21 @@ open when you miss me
 </div>
 
 <div class="letter">
+
 we're probably under the same sky
 thinking about the same sunsets anyway.
+
 <div class="sign">
 — always with you 🌙
 </div>
-</div>
 
 </div>
 
-<div class="envelope" onclick="toggleEnvelope(this)">
+</div>
+
+<div class="envelope"
+onclick="toggleEnvelope(this)">
+
 <div class="flap"></div>
 
 <div class="envelope-title">
@@ -590,16 +858,23 @@ open when tired
 </div>
 
 <div class="letter">
-you've already survived 100% of your hardest days.
-i'm proud of you for trying even when things feel heavy.
+
+you've already survived 100%
+of your hardest days.
+
+i'm proud of you for trying.
+
 <div class="sign">
 — your favorite person ✨
 </div>
-</div>
 
 </div>
 
-<div class="envelope" onclick="toggleEnvelope(this)">
+</div>
+
+<div class="envelope"
+onclick="toggleEnvelope(this)">
+
 <div class="flap"></div>
 
 <div class="envelope-title">
@@ -607,19 +882,23 @@ open for emergency serotonin
 </div>
 
 <div class="letter">
-this is your official reminder that:
+
 you are iconic,
-funny,
 important,
-and legally required to stay forever.
+and legally required
+to stay forever.
+
 <div class="sign">
 — management 💌
 </div>
-</div>
 
 </div>
 
-<div class="envelope" onclick="toggleEnvelope(this)">
+</div>
+
+<div class="envelope"
+onclick="toggleEnvelope(this)">
+
 <div class="flap"></div>
 
 <div class="envelope-title">
@@ -627,11 +906,16 @@ open after a sunset
 </div>
 
 <div class="letter">
+
 some sunsets will always remind me of you.
-quiet happiness feels softer with you around.
+
+quiet happiness feels softer
+with you around.
+
 <div class="sign">
 — sunset partner 🌅
 </div>
+
 </div>
 
 </div>
@@ -640,7 +924,46 @@ quiet happiness feels softer with you around.
 
 </section>
 
-<!-- SECRET -->
+<!-- SECRET QUESTION -->
+
+<section class="hidden-question">
+
+<div class="question-box">
+
+<h3>
+will you stay forever? 🤍
+</h3>
+
+<div class="question-buttons">
+
+<button class="yes-btn"
+onclick="showLoveMessage()">
+yes ✨
+</button>
+
+<button class="no-btn"
+id="noBtn"
+onmouseover="moveNoButton()">
+no
+</button>
+
+</div>
+
+<div class="secret-answer"
+id="secretAnswer">
+
+hehe i knew it 🤍<br><br>
+
+thank you for being one of the
+best parts of my life.
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SECRET MEMORY BOX -->
 
 <section class="section">
 
@@ -660,11 +983,13 @@ placeholder="enter password">
 
 <br>
 
-<button class="unlock-btn" onclick="unlockSecret()">
+<button class="unlock-btn"
+onclick="unlockSecret()">
 unlock 💌
 </button>
 
-<div class="secret-message" id="secretMessage">
+<div class="secret-message"
+id="secretMessage">
 
 thank you for every memory,
 every comfort call,
@@ -724,11 +1049,12 @@ card.classList.toggle('open');
 
 }
 
-/* SECRET */
+/* SECRET BOX */
 
 function unlockSecret(){
 
-let pass=document.getElementById('password').value;
+let pass=
+document.getElementById('password').value;
 
 if(pass.toLowerCase()==='sunsets'){
 
@@ -739,6 +1065,28 @@ document.getElementById('secretMessage').style.display='block';
 alert('wrong password 🤍');
 
 }
+
+}
+
+/* YES BUTTON */
+
+function showLoveMessage(){
+
+document.getElementById('secretAnswer').style.display='block';
+
+}
+
+/* NO BUTTON */
+
+function moveNoButton(){
+
+let btn=document.getElementById('noBtn');
+
+let x=Math.random()*200-100;
+let y=Math.random()*40;
+
+btn.style.transform=
+`translate(${x}px,${y}px)`;
 
 }
 
