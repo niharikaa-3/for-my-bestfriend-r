@@ -1,268 +1,430 @@
-<!-- 
-ULTIMATE BEST FRIEND WEBSITE ✨
-Features:
-🎱 Real mini pool game
-🎵 Spotify music player
-🐾 Cat cursor
-💖 Love meter
-🎁 Hidden surprise messages
-🌫️ Perfume spray animation
-📸 Polaroid gallery
-🔐 Password secret page
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Favorite Human 💖</title>
+<title>For Rohan 🤍</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
 
 <style>
 
+:root{
+--ivory:#f8f5f0;
+--champagne:#e9dfd2;
+--peach:#e9c7b8;
+--lavender:#cbc3d8;
+--night:#2d2a2a;
+--soft:#ffffffcc;
+}
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  cursor:none;
-  font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
-  background:linear-gradient(135deg,#ffd9ec,#fff2d8,#dff6ff);
-  overflow-x:hidden;
-  color:#5c4d5b;
+background:linear-gradient(180deg,#f8f5f0,#f3ede6,#ece6e0);
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
+color:#3a3636;
 }
 
-/* CAT CURSOR */
+/* LOADING SCREEN */
 
-#cursor{
-  position:fixed;
-  width:40px;
-  height:40px;
-  pointer-events:none;
-  z-index:9999;
-  transform:translate(-50%,-50%);
-  transition:transform 0.05s linear;
-  font-size:30px;
+#loader{
+position:fixed;
+inset:0;
+background:linear-gradient(180deg,#f4e7db,#efe5df,#e7e2ea);
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:99999;
+transition:1.5s;
 }
 
-/* FLOATING */
+.loader-text{
+font-family:'Cormorant Garamond',serif;
+font-size:2rem;
+letter-spacing:2px;
+opacity:0.8;
+}
 
-.float{
-  position:absolute;
-  animation:float 6s ease-in-out infinite;
-  opacity:0.7;
+.loader-sub{
+margin-top:15px;
+font-size:0.95rem;
+opacity:0.6;
+}
+
+.loader-stars{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+}
+
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:0.2;}
+to{opacity:1;}
+}
+
+/* FLOAT PARTICLES */
+
+.particle{
+position:fixed;
+width:6px;
+height:6px;
+border-radius:50%;
+background:rgba(255,255,255,0.5);
+pointer-events:none;
+animation:float 15s linear infinite;
+z-index:-1;
 }
 
 @keyframes float{
-  0%{transform:translateY(0px);}
-  50%{transform:translateY(-20px);}
-  100%{transform:translateY(0px);}
+from{
+transform:translateY(100vh);
+opacity:0;
+}
+30%{
+opacity:1;
+}
+to{
+transform:translateY(-120vh);
+opacity:0;
+}
 }
 
 /* HERO */
 
 .hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:30px;
-  position:relative;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
+position:relative;
+background:
+linear-gradient(
+180deg,
+rgba(240,223,210,0.7),
+rgba(244,239,235,0.9)
+);
+}
+
+.hero-content{
+max-width:850px;
+animation:fadeUp 2s ease;
 }
 
 .hero h1{
-  font-size:4rem;
-  color:#ff5e94;
-  margin-bottom:20px;
+font-family:'Cormorant Garamond',serif;
+font-size:6rem;
+font-weight:600;
+letter-spacing:2px;
+margin-bottom:20px;
+color:#2d2a2a;
 }
 
 .hero p{
-  max-width:700px;
-  line-height:1.8;
-  font-size:1.1rem;
+font-size:1.15rem;
+line-height:2;
+opacity:0.75;
+max-width:700px;
+margin:auto;
 }
 
-.btn{
-  margin-top:25px;
-  padding:14px 28px;
-  border:none;
-  border-radius:50px;
-  background:linear-gradient(135deg,#ff77aa,#ffb870);
-  color:white;
-  font-size:1rem;
-  cursor:pointer;
-  box-shadow:0 8px 20px rgba(255,119,170,0.3);
-  transition:0.3s;
+.enter-btn{
+margin-top:40px;
+padding:16px 34px;
+border:none;
+border-radius:50px;
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(10px);
+font-size:1rem;
+cursor:pointer;
+transition:0.4s;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
-.btn:hover{
-  transform:scale(1.08);
+.enter-btn:hover{
+transform:translateY(-4px);
+background:white;
 }
 
-/* LOVE METER */
+/* SECTION */
 
-.love-box{
-  width:90%;
-  max-width:600px;
-  margin:80px auto;
-  background:white;
-  padding:30px;
-  border-radius:30px;
-  text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+.section{
+padding:120px 10%;
 }
 
-.meter{
-  width:100%;
-  height:30px;
-  background:#ffe5ef;
-  border-radius:50px;
-  overflow:hidden;
-  margin-top:20px;
+.section-title{
+font-family:'Cormorant Garamond',serif;
+font-size:3.5rem;
+text-align:center;
+margin-bottom:70px;
+font-weight:600;
 }
 
-.fill{
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg,#ff5e94,#ffb870);
-  transition:2s;
+/* MOOD SELECTOR */
+
+.moods{
+display:flex;
+justify-content:center;
+gap:18px;
+flex-wrap:wrap;
+margin-top:40px;
 }
 
-/* POLAROID */
+.mood-btn{
+padding:14px 24px;
+border-radius:40px;
+border:none;
+background:rgba(255,255,255,0.6);
+backdrop-filter:blur(8px);
+cursor:pointer;
+transition:0.4s;
+font-size:0.95rem;
+}
 
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
-  padding:80px 10%;
+.mood-btn:hover{
+transform:translateY(-4px);
+background:white;
+}
+
+/* SCRAPBOOK */
+
+.scrapbook{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+gap:45px;
 }
 
 .polaroid{
-  background:white;
-  padding:15px 15px 50px;
-  border-radius:10px;
-  transform:rotate(-2deg);
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
-  transition:0.3s;
+background:white;
+padding:15px 15px 55px;
+box-shadow:0 18px 35px rgba(0,0,0,0.08);
+position:relative;
+transition:0.5s;
 }
 
-.polaroid:nth-child(even){
-  transform:rotate(2deg);
+.polaroid:nth-child(1){
+transform:rotate(-3deg);
+}
+
+.polaroid:nth-child(2){
+transform:rotate(2deg);
+}
+
+.polaroid:nth-child(3){
+transform:rotate(-2deg);
 }
 
 .polaroid:hover{
-  transform:scale(1.03);
+transform:scale(1.04) rotate(0deg);
 }
 
 .polaroid img{
-  width:100%;
-  height:300px;
-  object-fit:cover;
-  border-radius:10px;
+width:100%;
+height:340px;
+object-fit:cover;
+filter:saturate(0.95);
+}
+
+.tape{
+position:absolute;
+width:90px;
+height:22px;
+background:rgba(255,255,255,0.5);
+top:-10px;
+left:50%;
+transform:translateX(-50%) rotate(-2deg);
+backdrop-filter:blur(5px);
 }
 
 .caption{
-  margin-top:15px;
-  text-align:center;
-  font-weight:bold;
+margin-top:20px;
+font-family:'Caveat',cursive;
+font-size:1.5rem;
+text-align:center;
+color:#5a5353;
 }
 
-/* PERFUME SPRAY */
+/* METER */
 
-.spray-btn{
-  display:block;
-  margin:20px auto;
+.meter-box{
+max-width:700px;
+margin:auto;
+background:rgba(255,255,255,0.5);
+backdrop-filter:blur(10px);
+padding:45px;
+border-radius:35px;
+box-shadow:0 10px 25px rgba(0,0,0,0.06);
+text-align:center;
 }
 
-.mist{
-  position:fixed;
-  width:20px;
-  height:20px;
-  background:rgba(255,255,255,0.5);
-  border-radius:50%;
-  pointer-events:none;
-  animation:spray 2s linear forwards;
+.meter{
+width:100%;
+height:22px;
+border-radius:50px;
+background:#eee;
+overflow:hidden;
+margin:30px 0;
 }
 
-@keyframes spray{
-  0%{
-    transform:scale(0.5);
-    opacity:1;
-  }
-  100%{
-    transform:translateY(-200px) scale(4);
-    opacity:0;
-  }
+.fill{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#d8b8a8,#c7bfd6);
+transition:2.5s;
 }
 
-/* POOL GAME */
+.meter-result{
+font-size:1.2rem;
+opacity:0.8;
+margin-top:25px;
+}
 
-.pool-container{
-  padding:80px 20px;
-  text-align:center;
+/* NOTES */
+
+.notes{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:35px;
+}
+
+.note-card{
+background:#fffdf9;
+padding:40px 25px;
+border-radius:25px;
+cursor:pointer;
+position:relative;
+overflow:hidden;
+box-shadow:0 15px 35px rgba(0,0,0,0.07);
+transition:0.4s;
+}
+
+.note-card:hover{
+transform:translateY(-6px);
+}
+
+.note-card h3{
+font-family:'Cormorant Garamond',serif;
+font-size:2rem;
+margin-bottom:15px;
+}
+
+.hidden-message{
+margin-top:20px;
+line-height:1.8;
+display:none;
+opacity:0.75;
+}
+
+/* POOL */
+
+.pool-wrapper{
+background:#10241d;
+padding:50px;
+border-radius:40px;
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
 }
 
 canvas{
-  background:#0d8c4a;
-  border:15px solid #6b3f1f;
-  border-radius:20px;
-  margin-top:20px;
-  max-width:100%;
+background:#1f6d4d;
+border:18px solid #5b3622;
+border-radius:25px;
+width:100%;
+max-width:1000px;
+display:block;
+margin:auto;
+box-shadow:inset 0 0 30px rgba(0,0,0,0.4);
 }
 
-/* SECRET PAGE */
+/* SECRET */
 
 .secret-box{
-  width:90%;
-  max-width:600px;
-  margin:80px auto;
-  background:white;
-  padding:30px;
-  border-radius:30px;
-  text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+max-width:700px;
+margin:auto;
+padding:50px;
+background:rgba(255,255,255,0.55);
+backdrop-filter:blur(10px);
+border-radius:35px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.secret-box input{
+margin-top:25px;
+padding:16px;
+width:80%;
+border-radius:18px;
+border:none;
+outline:none;
+font-size:1rem;
+background:white;
+}
+
+.unlock-btn{
+margin-top:25px;
+padding:14px 30px;
+border:none;
+border-radius:50px;
+background:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+.unlock-btn:hover{
+transform:translateY(-3px);
 }
 
 .secret-message{
-  display:none;
-  margin-top:20px;
-  background:#ffeaf2;
-  padding:20px;
-  border-radius:20px;
+display:none;
+margin-top:35px;
+line-height:2;
+font-size:1.05rem;
+opacity:0.8;
+animation:fadeUp 1.5s ease;
 }
 
-input{
-  padding:12px;
-  border-radius:10px;
-  border:2px solid #ffd3e2;
-  width:70%;
-  margin-top:15px;
+/* FOOTER */
+
+footer{
+padding:70px 20px;
+text-align:center;
+opacity:0.6;
+font-size:0.95rem;
 }
 
-/* SPOTIFY */
+/* ANIMATIONS */
 
-.spotify{
-  display:flex;
-  justify-content:center;
-  padding:40px;
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
 }
-
-/* SURPRISE */
-
-.surprise{
-  text-align:center;
-  padding:60px 20px;
+to{
+opacity:1;
+transform:translateY(0);
 }
-
-.hidden-note{
-  display:none;
-  margin-top:20px;
-  font-size:1.2rem;
-  color:#ff5e94;
 }
 
 /* MOBILE */
@@ -270,7 +432,15 @@ input{
 @media(max-width:768px){
 
 .hero h1{
-  font-size:2.8rem;
+font-size:4rem;
+}
+
+.section-title{
+font-size:2.5rem;
+}
+
+.pool-wrapper{
+padding:20px;
 }
 
 }
@@ -280,358 +450,566 @@ input{
 
 <body>
 
-<div id="cursor">🐾</div>
+<!-- LOADER -->
 
-<div class="float" style="top:10%;left:10%;">🐱</div>
-<div class="float" style="top:20%;right:10%;">✨</div>
-<div class="float" style="bottom:10%;left:20%;">💖</div>
+<div id="loader">
+
+<div class="loader-stars">
+<div class="star" style="top:20%;left:15%;"></div>
+<div class="star" style="top:30%;left:60%;"></div>
+<div class="star" style="top:70%;left:40%;"></div>
+<div class="star" style="top:80%;left:80%;"></div>
+</div>
+
+<div class="loader-text">
+collecting memories...
+</div>
+
+<div class="loader-sub">
+sunsets • white flowers • late night calls
+</div>
+
+</div>
+
+<!-- HERO -->
 
 <section class="hero">
 
-<h1>Hey Bestie 💌</h1>
+<div class="hero-content">
+
+<h1>For Rohan</h1>
 
 <p>
-This website was made with cats, perfume dreams,
-music, chaos, and appreciation for one very special human ✨
+Built from sunsets, white flowers, late night calls,
+shared silences, endless support, and all the little moments
+that quietly became unforgettable.
 </p>
 
-<button class="btn" onclick="showMessage()">
-Open Tiny Surprise 🎁
+<button class="enter-btn"
+onclick="document.getElementById('memories').scrollIntoView()">
+enter our little universe ✨
 </button>
 
-<div class="hidden-note" id="note">
-You are genuinely one of the best people ever 💖
+<div class="moods">
+
+<button class="mood-btn" onclick="setMood('sunset')">
+Sunset Evenings 🌅
+</button>
+
+<button class="mood-btn" onclick="setMood('flowers')">
+White Flowers 🤍
+</button>
+
+<button class="mood-btn" onclick="setMood('night')">
+Midnight Calls 🌙
+</button>
+
+<button class="mood-btn" onclick="setMood('drive')">
+Long Drives 🚗
+</button>
+
+</div>
+
 </div>
 
 </section>
 
-<!-- SPOTIFY -->
+<!-- MEMORIES -->
 
-<div class="spotify">
+<section class="section" id="memories">
 
-<iframe style="border-radius:12px"
-src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0XUsuxWHRQd?utm_source=generator"
-width="80%"
-height="352"
-frameBorder="0"
-allowfullscreen=""
-allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-loading="lazy"></iframe>
+<h2 class="section-title">
+Memory Scrapbook 📸
+</h2>
+
+<div class="scrapbook">
+
+<div class="polaroid">
+<div class="tape"></div>
+
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop">
+
+<div class="caption">
+another sunset together
+</div>
+</div>
+
+<div class="polaroid">
+<div class="tape"></div>
+
+<img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop">
+
+<div class="caption">
+flowers because words weren't enough
+</div>
+</div>
+
+<div class="polaroid">
+<div class="tape"></div>
+
+<img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop">
+
+<div class="caption">
+late night comfort calls
+</div>
+</div>
 
 </div>
 
-<!-- LOVE METER -->
+</section>
 
-<div class="love-box">
+<!-- METER -->
 
-<h2>Best Friend Meter 💖</h2>
+<section class="section">
 
-<p>Calculating how iconic you are...</p>
+<h2 class="section-title">
+Best Friend Meter 💖
+</h2>
+
+<div class="meter-box">
+
+<p>
+Scanning friendship levels...
+</p>
 
 <div class="meter">
 <div class="fill" id="fill"></div>
 </div>
 
-<h1 id="percent">0%</h1>
-
-<button class="btn" onclick="fillMeter()">
-Calculate ✨
+<button class="enter-btn" onclick="runMeter()">
+calculate ✨
 </button>
 
-</div>
-
-<!-- PERFUME -->
-
-<div class="love-box">
-
-<h2>Perfume Spray 🌫️</h2>
-
-<p>
-Click to release cozy expensive perfume energy.
-</p>
-
-<button class="btn spray-btn" onclick="sprayPerfume()">
-Spray Perfume ✨
-</button>
-
-</div>
-
-<!-- POLAROID GALLERY -->
-
-<h1 style="text-align:center;color:#ff5e94;">
-Memory Gallery 📸
-</h1>
-
-<div class="gallery">
-
-<div class="polaroid">
-<img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?q=80&w=1200&auto=format&fit=crop">
-<div class="caption">Certified emotional support cat 🐱</div>
-</div>
-
-<div class="polaroid">
-<img src="https://images.unsplash.com/photo-1511044568932-338cba0ad803?q=80&w=1200&auto=format&fit=crop">
-<div class="caption">Tiny happy moments ✨</div>
-</div>
-
-<div class="polaroid">
-<img src="https://images.unsplash.com/photo-1495360010541-f48722b34f7d?q=80&w=1200&auto=format&fit=crop">
-<div class="caption">Main character energy 🌸</div>
+<div class="meter-result" id="meterResult">
+friendship status pending...
 </div>
 
 </div>
 
-<!-- REAL POOL GAME -->
+</section>
 
-<div class="pool-container">
+<!-- NOTES -->
 
-<h1 style="color:#ff5e94;">
-Mini Pool 🎱
-</h1>
+<section class="section">
 
-<p>
-Drag backwards from the white ball and release to shoot.
-</p>
+<h2 class="section-title">
+Hidden Notes 🎁
+</h2>
 
-<canvas id="gameCanvas" width="800" height="400"></canvas>
+<div class="notes">
+
+<div class="note-card" onclick="openNote(this)">
+<h3>Open when sad</h3>
+
+<div class="hidden-message">
+You never have to carry everything alone.
+Some people stay — and I always will.
+</div>
+</div>
+
+<div class="note-card" onclick="openNote(this)">
+<h3>Open when overthinking</h3>
+
+<div class="hidden-message">
+You are loved far more than your mind allows you to believe sometimes.
+Breathe. Rest. You're okay.
+</div>
+</div>
+
+<div class="note-card" onclick="openNote(this)">
+<h3>Open after a long day</h3>
+
+<div class="hidden-message">
+Thank you for surviving today.
+I'm proud of you for getting through it.
+</div>
+</div>
+
+<div class="note-card" onclick="openNote(this)">
+<h3>Open when you miss me</h3>
+
+<div class="hidden-message">
+We're probably under the same sky thinking about the same sunsets anyway.
+</div>
+</div>
 
 </div>
 
-<!-- SECRET PAGE -->
+</section>
+
+<!-- POOL -->
+
+<section class="section">
+
+<h2 class="section-title">
+Midnight Pool 🎱
+</h2>
+
+<div class="pool-wrapper">
+
+<canvas id="pool" width="950" height="500"></canvas>
+
+</div>
+
+</section>
+
+<!-- SECRET -->
+
+<section class="section">
+
+<h2 class="section-title">
+Secret Memory Box 🔐
+</h2>
 
 <div class="secret-box">
 
-<h2>Secret Page 🔐</h2>
-
 <p>
-Only cool people know the password.
+Only Rohan knows the password.
 </p>
 
-<input type="password" id="password" placeholder="Enter password">
+<input type="password" id="password"
+placeholder="enter password">
 
 <br>
 
-<button class="btn" onclick="checkPassword()">
-Unlock ✨
+<button class="unlock-btn" onclick="unlockSecret()">
+unlock ✨
 </button>
 
-<div class="secret-message" id="secret">
+<div class="secret-message" id="secretMessage">
 
-🌸 SECRET MESSAGE 🌸
+Some friendships quietly become part of your life forever.
 
 <br><br>
 
-Thank you for existing.
-You make life feel softer, funnier,
-and way more beautiful 💖
+Thank you for every late night call,
+every sunset,
+every flower,
+every moment you stayed.
+
+<br><br>
+
+And yes —
+you are emotionally attached beyond repair.
+
+🤍
 
 </div>
 
 </div>
+
+</section>
+
+<footer>
+made from memories, sunsets, and quiet appreciation ✨
+</footer>
 
 <script>
 
-/* CAT CURSOR */
-
-const cursor = document.getElementById('cursor');
-
-document.addEventListener('mousemove',(e)=>{
-
-cursor.style.left = e.clientX + 'px';
-cursor.style.top = e.clientY + 'px';
-
-});
-
-/* SURPRISE */
-
-function showMessage(){
-
-document.getElementById('note').style.display='block';
-
-}
-
-/* LOVE METER */
-
-function fillMeter(){
-
-let random = Math.floor(Math.random()*11)+90;
-
-document.getElementById('fill').style.width = random + '%';
-
-document.getElementById('percent').innerHTML = random + '%';
-
-}
-
-/* PERFUME */
-
-function sprayPerfume(){
-
-for(let i=0;i<40;i++){
-
-let mist = document.createElement('div');
-
-mist.classList.add('mist');
-
-mist.style.left = (window.innerWidth/2 + Math.random()*200 -100)+'px';
-
-mist.style.top = (window.innerHeight/2 + Math.random()*100)+'px';
-
-document.body.appendChild(mist);
+/* LOADER */
 
 setTimeout(()=>{
 
-mist.remove();
+document.getElementById('loader').style.opacity='0';
 
-},2000);
+setTimeout(()=>{
+
+document.getElementById('loader').style.display='none';
+
+},1500);
+
+},2500);
+
+/* PARTICLES */
+
+for(let i=0;i<25;i++){
+
+let p=document.createElement('div');
+
+p.classList.add('particle');
+
+p.style.left=Math.random()*100+'vw';
+p.style.animationDuration=(10+Math.random()*10)+'s';
+p.style.opacity=Math.random();
+
+document.body.appendChild(p);
+
+}
+
+/* MOODS */
+
+function setMood(type){
+
+if(type==='sunset'){
+
+document.body.style.background=
+'linear-gradient(180deg,#f6e0d0,#f3ebe3,#ece7e1)';
+
+}
+
+if(type==='flowers'){
+
+document.body.style.background=
+'linear-gradient(180deg,#f7f5f1,#ece6e0,#e6e0ea)';
+
+}
+
+if(type==='night'){
+
+document.body.style.background=
+'linear-gradient(180deg,#d7d5dd,#ece7e1,#f6f2ed)';
+
+}
+
+if(type==='drive'){
+
+document.body.style.background=
+'linear-gradient(180deg,#efe1d7,#ebe7e2,#f8f5f0)';
 
 }
 
 }
 
-/* PASSWORD */
+/* METER */
 
-function checkPassword(){
+function runMeter(){
 
-let pass = document.getElementById('password').value;
+let fill=document.getElementById('fill');
 
-if(pass === 'bestie'){
+fill.style.width='100%';
 
-document.getElementById('secret').style.display='block';
+const messages=[
+
+'emotionally attached beyond repair.',
+'friendship level: impossibly rare.',
+'professional comfort humans.',
+'built from sunsets and loyalty.',
+'100% favorite person energy.'
+
+];
+
+let random=
+messages[Math.floor(Math.random()*messages.length)];
+
+setTimeout(()=>{
+
+document.getElementById('meterResult').innerHTML=random;
+
+},1800);
+
+}
+
+/* NOTES */
+
+function openNote(card){
+
+let msg=card.querySelector('.hidden-message');
+
+if(msg.style.display==='block'){
+
+msg.style.display='none';
 
 }else{
 
-alert('Wrong password 😭');
+msg.style.display='block';
 
 }
 
 }
 
-/* REAL MINI POOL */
+/* SECRET */
 
-const canvas = document.getElementById('gameCanvas');
-const ctx = canvas.getContext('2d');
+function unlockSecret(){
 
-let ball = {
-x:150,
-y:200,
-radius:12,
+let pass=document.getElementById('password').value;
+
+if(pass.toLowerCase()==='sunsets'){
+
+document.getElementById('secretMessage').style.display='block';
+
+}else{
+
+alert('wrong password 🌙');
+
+}
+
+}
+
+/* POOL GAME */
+
+const canvas=document.getElementById('pool');
+const ctx=canvas.getContext('2d');
+
+const pockets=[
+{x:20,y:20},
+{x:475,y:20},
+{x:930,y:20},
+{x:20,y:480},
+{x:475,y:480},
+{x:930,y:480}
+];
+
+let cueBall={
+x:180,
+y:250,
+r:13,
 vx:0,
 vy:0
 };
 
-let target = {
-x:650,
-y:200,
-radius:12
+let targetBall={
+x:700,
+y:250,
+r:13,
+active:true
 };
 
-let dragging = false;
-let startX,startY;
+let aiming=false;
+let mouse={x:0,y:0};
+
+canvas.addEventListener('mousedown',()=>{
+
+aiming=true;
+
+});
+
+canvas.addEventListener('mouseup',(e)=>{
+
+if(aiming){
+
+let rect=canvas.getBoundingClientRect();
+
+let mx=e.clientX-rect.left;
+let my=e.clientY-rect.top;
+
+cueBall.vx=(cueBall.x-mx)/12;
+cueBall.vy=(cueBall.y-my)/12;
+
+aiming=false;
+
+}
+
+});
+
+canvas.addEventListener('mousemove',(e)=>{
+
+let rect=canvas.getBoundingClientRect();
+
+mouse.x=e.clientX-rect.left;
+mouse.y=e.clientY-rect.top;
+
+});
+
+function drawBall(ball,color){
+
+ctx.beginPath();
+ctx.arc(ball.x,ball.y,ball.r,0,Math.PI*2);
+ctx.fillStyle=color;
+ctx.fill();
+
+}
 
 function draw(){
 
 ctx.clearRect(0,0,canvas.width,canvas.height);
 
-/* holes */
+/* pockets */
 
-const holes = [
-[20,20],
-[400,20],
-[780,20],
-[20,380],
-[400,380],
-[780,380]
-];
-
-holes.forEach(h=>{
+pockets.forEach(p=>{
 
 ctx.beginPath();
-ctx.arc(h[0],h[1],20,0,Math.PI*2);
-ctx.fillStyle='black';
+ctx.arc(p.x,p.y,24,0,Math.PI*2);
+ctx.fillStyle='#08120d';
 ctx.fill();
 
 });
 
+/* cue line */
+
+if(aiming){
+
+ctx.beginPath();
+ctx.moveTo(cueBall.x,cueBall.y);
+ctx.lineTo(mouse.x,mouse.y);
+ctx.strokeStyle='rgba(255,255,255,0.5)';
+ctx.lineWidth=3;
+ctx.stroke();
+
+}
+
+/* movement */
+
+cueBall.x+=cueBall.vx;
+cueBall.y+=cueBall.vy;
+
+cueBall.vx*=0.99;
+cueBall.vy*=0.99;
+
+if(cueBall.x<cueBall.r || cueBall.x>canvas.width-cueBall.r)
+cueBall.vx*=-1;
+
+if(cueBall.y<cueBall.r || cueBall.y>canvas.height-cueBall.r)
+cueBall.vy*=-1;
+
 /* target */
 
-ctx.beginPath();
-ctx.arc(target.x,target.y,target.radius,0,Math.PI*2);
-ctx.fillStyle='#ff5e94';
-ctx.fill();
+if(targetBall.active){
 
-/* ball */
+drawBall(targetBall,'#f7f2ed');
 
-ctx.beginPath();
-ctx.arc(ball.x,ball.y,ball.radius,0,Math.PI*2);
-ctx.fillStyle='white';
-ctx.fill();
+}
 
-/* physics */
+/* cue */
 
-ball.x += ball.vx;
-ball.y += ball.vy;
-
-ball.vx *= 0.99;
-ball.vy *= 0.99;
-
-if(Math.abs(ball.vx)<0.05) ball.vx=0;
-if(Math.abs(ball.vy)<0.05) ball.vy=0;
-
-/* walls */
-
-if(ball.x<ball.radius || ball.x>canvas.width-ball.radius)
-ball.vx *= -1;
-
-if(ball.y<ball.radius || ball.y>canvas.height-ball.radius)
-ball.vy *= -1;
+drawBall(cueBall,'white');
 
 /* collision */
 
-let dx = target.x-ball.x;
-let dy = target.y-ball.y;
+if(targetBall.active){
 
-let dist = Math.sqrt(dx*dx+dy*dy);
+let dx=targetBall.x-cueBall.x;
+let dy=targetBall.y-cueBall.y;
 
-if(dist < ball.radius + target.radius){
+let dist=Math.sqrt(dx*dx+dy*dy);
 
-ctx.font='40px Poppins';
+if(dist<cueBall.r+targetBall.r){
+
+targetBall.x+=cueBall.vx*3;
+targetBall.y+=cueBall.vy*3;
+
+}
+
+}
+
+/* pocket detection */
+
+if(targetBall.active){
+
+pockets.forEach(p=>{
+
+let dx=p.x-targetBall.x;
+let dy=p.y-targetBall.y;
+
+let dist=Math.sqrt(dx*dx+dy*dy);
+
+if(dist<22){
+
+targetBall.active=false;
+
 ctx.fillStyle='white';
-ctx.fillText('NICE SHOT 🎉',270,70);
+ctx.font='48px Cormorant Garamond';
+
+ctx.fillText('Nice shot ✨',360,80);
+
+}
+
+});
 
 }
 
 requestAnimationFrame(draw);
 
 }
-
-canvas.addEventListener('mousedown',(e)=>{
-
-dragging=true;
-
-const rect = canvas.getBoundingClientRect();
-
-startX = e.clientX - rect.left;
-startY = e.clientY - rect.top;
-
-});
-
-canvas.addEventListener('mouseup',(e)=>{
-
-if(dragging){
-
-const rect = canvas.getBoundingClientRect();
-
-let endX = e.clientX - rect.left;
-let endY = e.clientY - rect.top;
-
-ball.vx = (startX-endX)/10;
-ball.vy = (startY-endY)/10;
-
-dragging=false;
-
-}
-
-});
 
 draw();
 
